@@ -1,0 +1,43 @@
+:root {
+  /* Brand */
+  --color-black: #485051;
+  --color-ink: #111111;
+  --color-panel: #1c1c1c;
+  --color-panel-border: #2e2e2e;
+  --color-yellow: #ffc400;
+  --color-yellow-dark: #8a6500;
+  --color-white: #ffffff;
+  --color-surface: #fbfbfa;
+  --color-muted: #6f6f6f;
+  --color-muted-dark: #b5b5b5;
+  --color-border: #e8e8e5;
+  --color-icon-bg: #f0f0ee;
+
+  /* Typography */
+  --font-sans: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --fs-display: clamp(2rem, 5.8vw, 5.2rem);
+  --fs-h2: clamp(2rem, 4.6vw, 4.2rem);
+  --fs-h2-xl: clamp(2.1rem, 5.1vw, 4.6rem);
+  --fs-h2-md: clamp(1.9rem, 3.3vw, 2.95rem);
+  --fs-h2-sm: clamp(1.6rem, 2.4vw, 2.15rem);
+  --fs-lead: clamp(1rem, 1.4vw, 1.25rem);
+
+  /* Layout */
+  --wrap-width: 1440px;
+  --wrap-pad: clamp(20px, 4.7vw, 68px);
+  --nav-height: 84px;
+  --helpline-overlap: 80px;
+  --section-space: clamp(64px, 7vw, 100px);
+
+  /* Shape */
+  --radius-card: 16px;
+  --radius-button: 8px;
+  --radius-pill: 999px;
+
+  /* Elevation */
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.04);
+  --shadow-card-hover: 0 2px 4px rgb(0 0 0 / 0.06), 0 14px 32px rgb(0 0 0 / 0.1);
+
+  /* Breakpoints (reference only; CSS custom properties cannot be used in @media):
+     tablet 1024px, mobile 768px, small 480px */
+}

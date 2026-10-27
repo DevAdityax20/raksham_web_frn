@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+
+@import "./tokens.css";
+@import "./global.css";
+@import "./navbar.css";
+@import "./hero.css";
+@import "./why.css";
+@import "./categories.css";
+@import "./how-it-works.css";
+@import "./human-help.css";

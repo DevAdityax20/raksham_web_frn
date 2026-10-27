@@ -1,0 +1,116 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-height);
+}
+
+.navbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.navbar__logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.navbar__nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar__list {
+  display: flex;
+  gap: clamp(24px, 3.7vw, 54px);
+}
+
+.navbar__link {
+  position: relative;
+  display: inline-block;
+  padding: 30px 0 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #dcdcdc;
+  transition: color 0.15s ease;
+}
+
+.navbar__link:hover,
+.navbar__link.is-active {
+  color: var(--color-white);
+}
+
+.navbar__link.is-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--color-yellow);
+}
+
+.navbar__toggle,
+.navbar__cta--menu {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .navbar__brand { font-size: 1.75rem; }
+  .navbar__cta--bar { display: none; }
+
+  .navbar__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #333;
+    border-radius: var(--radius-button);
+    background: transparent;
+    color: var(--color-white);
+    cursor: pointer;
+  }
+
+  .navbar__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    transform: none;
+    display: none;
+    padding: 8px var(--wrap-pad) 24px;
+    background: var(--color-black);
+    border-top: 1px solid #222;
+  }
+
+  .navbar__nav.is-open { display: block; }
+  .navbar__list { flex-direction: column; gap: 0; }
+
+  .navbar__link {
+    display: block;
+    padding: 16px 0;
+    font-size: 1.125rem;
+    border-bottom: 1px solid #1f1f1f;
+  }
+
+  .navbar__link.is-active::after { display: none; }
+  .navbar__link.is-active { color: var(--color-yellow); }
+
+  .navbar__cta--menu { display: inline-flex; margin-top: 20px; width: 100%; }
+}
