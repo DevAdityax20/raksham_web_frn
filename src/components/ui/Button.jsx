@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
 // variant: 'primary' (yellow) | 'outline' (inherits text color for its border)
-// Renders a link when `href` is given, otherwise a <button> (use `type`/`onClick`).
-function Button({ href, variant = 'primary', arrow = false, size = 'md', className = '', type = 'button', onClick, children }) {
+// Renders a router <Link> for `to`, an <a> for `href`, otherwise a <button> (use `type`/`onClick`).
+function Button({ to, href, variant = 'primary', arrow = false, size = 'md', className = '', type = 'button', onClick, children, ...rest }) {
   const classes = ['btn', `btn--${variant}`, `btn--${size}`, className].filter(Boolean).join(' ')
   const content = (
     <>
@@ -11,16 +12,24 @@ function Button({ href, variant = 'primary', arrow = false, size = 'md', classNa
     </>
   )
 
+  if (to) {
+    return (
+      <Link className={classes} to={to} {...rest}>
+        {content}
+      </Link>
+    )
+  }
+
   if (href) {
     return (
-      <a className={classes} href={href}>
+      <a className={classes} href={href} {...rest}>
         {content}
       </a>
     )
   }
 
   return (
-    <button className={classes} type={type} onClick={onClick}>
+    <button className={classes} type={type} onClick={onClick} {...rest}>
       {content}
     </button>
   )

@@ -21,7 +21,7 @@ function Footer() {
             </h2>
             <p className="footer__lead">Free to use. Information, not legal advice.</p>
             <div className="footer__actions">
-              <Button href="#get-help" arrow size="xl">Get Started</Button>
+              <Button to="/auth/sign-in" arrow size="xl">Get Started</Button>
               <Button href="#how-it-works" variant="outline" size="xl">How it works</Button>
             </div>
           </div>

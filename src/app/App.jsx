@@ -1,27 +1,29 @@
-import Navbar from '../components/layout/Navbar.jsx'
-import Footer from '../components/layout/Footer.jsx'
-import HeroSection from '../sections/HeroSection.jsx'
-import WhyRakshamSection from '../sections/WhyRakshamSection.jsx'
-import LegalCategoriesSection from '../sections/LegalCategoriesSection.jsx'
-import HowItWorksSection from '../sections/HowItWorksSection.jsx'
-import HumanHelpSection from '../sections/HumanHelpSection.jsx'
-import OfficialResourcesSection from '../sections/OfficialResourcesSection.jsx'
-import PrivacySafetySection from '../sections/PrivacySafetySection.jsx'
+import { useEffect } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import HomePage from '../pages/HomePage.jsx'
+import NotFoundPage from '../pages/NotFoundPage.jsx'
+import SignIn from '../pages/auth/SignIn.jsx'
+import CreateAccount from '../pages/auth/CreateAccount.jsx'
+
+// Start every route change at the top, unless the URL targets an in-page anchor.
+function ScrollToTop() {
+  const { pathname, hash } = useLocation()
+  useEffect(() => {
+    if (!hash) window.scrollTo(0, 0)
+  }, [pathname, hash])
+  return null
+}
 
 function App() {
   return (
     <>
-      <Navbar />
-      <main>
-        <HeroSection />
-        <WhyRakshamSection />
-        <LegalCategoriesSection />
-        <HowItWorksSection />
-        <HumanHelpSection />
-        <OfficialResourcesSection />
-        <PrivacySafetySection />
-      </main>
-      <Footer />
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/auth/sign-in" element={<SignIn />} />
+        <Route path="/auth/create-account" element={<CreateAccount />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </>
   )
 }

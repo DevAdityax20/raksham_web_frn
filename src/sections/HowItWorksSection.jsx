@@ -24,7 +24,7 @@ function HowItWorksSection() {
         </ol>
 
         <div className="how__actions">
-          <Button href="#get-help" arrow size="lg">Get Started</Button>
+          <Button to="/auth/sign-in" arrow size="lg">Get Started</Button>
           <Button href="#get-help" variant="outline" size="lg">Explore categories</Button>
         </div>
         <TrustIndicators tone="light" className="how__trust" />

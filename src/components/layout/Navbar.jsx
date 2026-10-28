@@ -49,12 +49,12 @@ function Navbar() {
               </li>
             ))}
           </ul>
-          <Button className="navbar__cta navbar__cta--menu" href="#get-help" arrow size="sm">
+          <Button className="navbar__cta navbar__cta--menu" to="/auth/sign-in" arrow size="sm">
             Get Started
           </Button>
         </nav>
 
-        <Button className="navbar__cta navbar__cta--bar" href="#get-help" arrow size="sm">
+        <Button className="navbar__cta navbar__cta--bar" to="/auth/sign-in" arrow size="sm">
           Get Started
         </Button>
 

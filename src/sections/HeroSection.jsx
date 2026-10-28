@@ -24,7 +24,7 @@ function HeroSection() {
             resources and support options. No legal jargon, just clear answers.
           </p>
           <div className="hero__actions">
-            <Button href="#get-help" arrow size="lg">Get Started</Button>
+            <Button to="/auth/sign-in" arrow size="lg">Get Started</Button>
             <Button href="#how-it-works" variant="outline" size="lg">How it works</Button>
           </div>
           <TrustIndicators tone="dark" className="hero__trust" />
