@@ -3,8 +3,8 @@ import { BookOpen, FileText, ShieldCheck, Users } from 'lucide-react'
 export const navLinks = [
   { id: 'home', label: 'Home', href: '#home' },
   { id: 'how-it-works', label: 'How it works', href: '#how-it-works' },
-  // Placeholders: no dedicated Resources / About pages exist yet.
-  { id: 'resources', label: 'Resources', href: '#helplines' },
+  { id: 'official-resources', label: 'Resources', href: '#official-resources' },
+  // Placeholder: no dedicated About page exists yet.
   { id: 'about', label: 'About', href: '#why-raksham' },
 ]
 

@@ -4,6 +4,8 @@ import WhyRakshamSection from '../sections/WhyRakshamSection.jsx'
 import LegalCategoriesSection from '../sections/LegalCategoriesSection.jsx'
 import HowItWorksSection from '../sections/HowItWorksSection.jsx'
 import HumanHelpSection from '../sections/HumanHelpSection.jsx'
+import OfficialResourcesSection from '../sections/OfficialResourcesSection.jsx'
+import PrivacySafetySection from '../sections/PrivacySafetySection.jsx'
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <LegalCategoriesSection />
         <HowItWorksSection />
         <HumanHelpSection />
+        <OfficialResourcesSection />
+        <PrivacySafetySection />
       </main>
     </>
   )

@@ -1,13 +1,28 @@
 import { ArrowRight } from 'lucide-react'
 
 // variant: 'primary' (yellow) | 'outline' (inherits text color for its border)
-function Button({ href, variant = 'primary', arrow = false, size = 'md', className = '', children }) {
+// Renders a link when `href` is given, otherwise a <button> (use `type`/`onClick`).
+function Button({ href, variant = 'primary', arrow = false, size = 'md', className = '', type = 'button', onClick, children }) {
   const classes = ['btn', `btn--${variant}`, `btn--${size}`, className].filter(Boolean).join(' ')
-  return (
-    <a className={classes} href={href}>
+  const content = (
+    <>
       {children}
       {arrow && <ArrowRight className="btn__arrow" aria-hidden="true" strokeWidth={2.25} />}
-    </a>
+    </>
+  )
+
+  if (href) {
+    return (
+      <a className={classes} href={href}>
+        {content}
+      </a>
+    )
+  }
+
+  return (
+    <button className={classes} type={type} onClick={onClick}>
+      {content}
+    </button>
   )
 }
 

@@ -136,7 +136,6 @@
   /* Glassmorphism */
   background: rgb(28 28 28 / 0.55);
   backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
   border: 1px solid rgb(255 255 255 / 0.08);
   color: var(--color-white);
   box-shadow:

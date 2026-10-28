@@ -1,0 +1,232 @@
+.privacy {
+  padding-block: var(--section-space);
+  background: var(--color-white);
+}
+
+.privacy__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(32px, 4.5vw, 64px);
+}
+
+.privacy__title {
+  margin-top: 36px;
+  font-size: var(--fs-h2-lg);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.privacy__sub {
+  max-width: 600px;
+  margin-top: 20px;
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: var(--color-muted);
+}
+
+.privacy__rows {
+  margin-top: 36px;
+}
+
+.privacy-row {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding-block: 22px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.privacy-row:first-child {
+  padding-top: 0;
+}
+
+.privacy-row__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--color-icon-bg);
+}
+
+.privacy-row__icon svg {
+  width: 34px;
+  height: 34px;
+}
+
+.privacy-row__title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.privacy-row__desc {
+  margin-top: 6px;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+.privacy__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 40px;
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.privacy__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 190px;
+  max-width: calc(100% - 36px);
+  height: 3px;
+  border-radius: 2px;
+  background: var(--color-yellow);
+}
+
+.privacy__link svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Dark capability card */
+.expect {
+  box-sizing: border-box;
+  margin-top: 8px;
+  padding: clamp(28px, 3.6vw, 48px);
+  border-radius: 24px;
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.eyebrow--on-dark {
+  color: var(--color-white);
+}
+
+.expect__title {
+  margin-top: 22px;
+  font-size: clamp(1.9rem, 3.1vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+.capability {
+  margin-top: 32px;
+}
+
+.capability__heading {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.capability__lead {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+}
+
+.capability__lead--can {
+  background: var(--color-yellow);
+  color: var(--color-black);
+}
+
+.capability__lead--can svg {
+  width: 24px;
+  height: 24px;
+}
+
+.capability__lead--cannot svg {
+  width: 46px;
+  height: 46px;
+}
+
+.capability__list {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+  padding-left: 64px;
+}
+
+.capability__item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  color: #f1f1f1;
+}
+
+.capability__check {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-yellow);
+  color: var(--color-black);
+}
+
+.capability__check svg {
+  width: 18px;
+  height: 18px;
+}
+
+.capability__minus {
+  flex: none;
+  width: 34px;
+  height: 34px;
+}
+
+.expect__rule {
+  margin: 32px 0 0;
+  border: 0;
+  border-top: 1px solid #2e2e2e;
+}
+
+.expect__note {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+  font-size: 0.9375rem;
+  color: #d6d6d6;
+}
+
+.expect__note svg {
+  flex: none;
+  width: 26px;
+  height: 26px;
+}
+
+@media (max-width: 1024px) {
+  .privacy__grid { grid-template-columns: 1fr; }
+  .expect { margin-top: 0; }
+}
+
+@media (max-width: 560px) {
+  .privacy-row { gap: 18px; align-items: flex-start; }
+  .privacy-row__icon { width: 60px; height: 60px; }
+  .privacy-row__icon svg { width: 26px; height: 26px; }
+  .privacy-row__title { font-size: 1.1875rem; }
+  .capability__list { padding-left: 0; }
+  .capability__heading { font-size: 1.3125rem; gap: 14px; }
+}
