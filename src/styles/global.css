@@ -64,6 +64,16 @@ a {
 .btn--sm { min-height: 52px; padding: 0 28px; font-size: 1rem; }
 .btn--md { min-height: 58px; padding: 0 34px; font-size: 1.0625rem; }
 .btn--lg { min-height: 64px; padding: 0 44px; font-size: 1.25rem; }
+.btn--xl { min-height: 72px; padding: 0 clamp(32px, 4vw, 56px); font-size: 1.375rem; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 
 .btn--primary {
   background: var(--color-yellow);
