@@ -1,12 +1,12 @@
-import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { ScanLine } from 'lucide-react'
 import { QUICK_EXIT_URL } from '../../data/auth.js'
-import { languages } from '../../data/footer.js'
+import { languages } from '../../i18n/index.js'
+import { useLanguage } from '../../i18n/useLanguage.js'
 
-// Selection state only. Translation is not implemented; connect `language`
-// to a localization layer here when one exists.
 function AuthHeaderControls() {
-  const [language, setLanguage] = useState('en')
+  const { t } = useTranslation()
+  const { language, setLanguage } = useLanguage()
 
   // replace() keeps the page out of the Back-button trail; it cannot clear browser history.
   const quickExit = () => window.location.replace(QUICK_EXIT_URL)
@@ -15,9 +15,9 @@ function AuthHeaderControls() {
     <div className="auth-controls">
       <button type="button" className="auth-controls__exit" onClick={quickExit}>
         <ScanLine aria-hidden="true" strokeWidth={1.75} />
-        Quick exit
+        {t('auth.quickExit')}
       </button>
-      <div className="auth-controls__lang" role="group" aria-label="Language">
+      <div className="auth-controls__lang" role="group" aria-label={t('language.group')}>
         {languages.map(({ code, label, lang }) => (
           <button
             key={code}

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import SectionEyebrow from '../components/common/SectionEyebrow.jsx'
 import ResourceFilters from '../components/common/ResourceFilters.jsx'
 import ResourceCard from '../components/common/ResourceCard.jsx'
@@ -7,6 +8,7 @@ import ResourceDisclaimer from '../components/common/ResourceDisclaimer.jsx'
 import { emptyFilters, filterResources, resources } from '../data/resources.js'
 
 function OfficialResourcesSection() {
+  const { t } = useTranslation()
   const [draft, setDraft] = useState(emptyFilters)
   const [applied, setApplied] = useState(emptyFilters)
 
@@ -21,12 +23,9 @@ function OfficialResourcesSection() {
     <section className="resources" id="official-resources" aria-labelledby="resources-title">
       <div className="wrap">
         <div className="resources__panel">
-          <SectionEyebrow>Official resources</SectionEyebrow>
-          <h2 className="resources__title" id="resources-title">Find verified help, not guesswork.</h2>
-          <p className="resources__sub">
-            Browse official services and support organizations by category and location. Every listing shows who
-            runs it and when it was last reviewed.
-          </p>
+          <SectionEyebrow>{t('resources.eyebrow')}</SectionEyebrow>
+          <h2 className="resources__title" id="resources-title">{t('resources.title')}</h2>
+          <p className="resources__sub">{t('resources.sub')}</p>
 
           <ResourceFilters
             values={draft}

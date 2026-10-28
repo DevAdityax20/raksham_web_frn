@@ -184,3 +184,18 @@ a {
   .trust__item + .trust__item { border-left: 0; }
   .trust--light { align-items: center; }
 }
+
+/* Hindi: Devanagari conjuncts and matras need neutral tracking and more line height */
+html[lang='hi'] * {
+  letter-spacing: 0 !important;
+}
+
+html[lang='hi'] :is(h1, h2, h3, h4) {
+  line-height: 1.4 !important;
+}
+
+/* Devanagari glyphs run wider than Latin: step down the large display type so layouts hold */
+html[lang='hi'] .hero__title { font-size: clamp(1.9rem, 4.4vw, 3.9rem); }
+html[lang='hi'] .hero__lead { font-size: clamp(0.95rem, 1.2vw, 1.1rem); }
+html[lang='hi'] .footer__title { font-size: clamp(1.9rem, 3.9vw, 3.5rem); }
+html[lang='hi'] .auth-brand__title { font-size: clamp(1.8rem, min(3.1vw, 5vh), 2.9rem); }

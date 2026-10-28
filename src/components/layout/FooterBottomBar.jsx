@@ -1,6 +1,8 @@
+import { useTranslation } from 'react-i18next'
 import { Phone } from 'lucide-react'
 
 function FooterBottomBar() {
+  const { t } = useTranslation()
   return (
     <div className="footer-bar">
       <a className="footer-bar__emergency" href="tel:112">
@@ -8,15 +10,15 @@ function FooterBottomBar() {
           <Phone fill="currentColor" strokeWidth={1.5} />
         </span>
         <span>
-          In immediate danger? Call <strong>112.</strong>
+          {t('footer.emergencyPrefix')} <strong>{t('footer.emergencyNumber')}</strong>
         </span>
       </a>
       <p className="footer-bar__legal">
-        Raksham provides general legal information, not legal advice.
+        {t('footer.legal1')}
         <br />
-        Raksham is not affiliated with any government body.
+        {t('footer.legal2')}
       </p>
-      <p className="footer-bar__copy">© {new Date().getFullYear()} Raksham. All rights reserved.</p>
+      <p className="footer-bar__copy">{t('footer.copyright', { year: new Date().getFullYear() })}</p>
     </div>
   )
 }

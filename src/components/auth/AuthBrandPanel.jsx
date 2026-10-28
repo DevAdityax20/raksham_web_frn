@@ -1,35 +1,37 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { authBenefits } from '../../data/auth.js'
 import logo from '../../assets/images/logo.png'
 
 function AuthBrandPanel() {
+  const { t } = useTranslation()
   return (
     <aside className="auth-brand">
-      <Link className="auth-brand__logo" to="/" aria-label="Raksham home">
+      <Link className="auth-brand__logo" to="/" aria-label={t('auth.brand.homeAria')}>
         <img src={logo} alt="" width="56" height="56" />
         <span>Raksham</span>
       </Link>
 
       <div className="auth-brand__body">
         <h2 className="auth-brand__title">
-          <span>Know your rights.</span>
+          <span>{t('tagline.line1')}</span>
           <span>
-            Know your <em>next step.</em>
+            {t('tagline.line2Prefix')} <em>{t('tagline.highlight')}</em>
           </span>
         </h2>
         <p className="auth-brand__lead">
-          Clear, step-by-step legal guidance
+          {t('auth.brand.lead1')}
           <br />
-          in simple language.
+          {t('auth.brand.lead2')}
         </p>
 
         <ul className="auth-benefits">
-          {authBenefits.map(({ icon: Icon, title, description }) => (
-            <li className="auth-benefit" key={title}>
+          {authBenefits.map(({ id, icon: Icon }) => (
+            <li className="auth-benefit" key={id}>
               <Icon aria-hidden="true" strokeWidth={1.75} />
               <div>
-                <h3>{title}</h3>
-                <p>{description}</p>
+                <h3>{t(`auth.benefits.${id}.title`)}</h3>
+                <p>{t(`auth.benefits.${id}.description`)}</p>
               </div>
             </li>
           ))}
@@ -57,7 +59,7 @@ function AuthBrandPanel() {
           <path d="M27 40Q55 56 83 40L55 84Z" fill="#080808" />
         </svg>
 
-        <p className="auth-brand__disclaimer">General legal information, not legal advice.</p>
+        <p className="auth-brand__disclaimer">{t('auth.brand.disclaimer')}</p>
       </div>
     </aside>
   )

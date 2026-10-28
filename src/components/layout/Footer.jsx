@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import SectionEyebrow from '../common/SectionEyebrow.jsx'
 import Button from '../ui/Button.jsx'
 import FooterFeedbackForm from './FooterFeedbackForm.jsx'
@@ -7,22 +8,23 @@ import FooterBottomBar from './FooterBottomBar.jsx'
 import { footerColumns } from '../../data/footer.js'
 
 function Footer() {
+  const { t } = useTranslation()
   return (
     <footer className="footer" id="site-footer">
       <div className="wrap">
         <div className="footer__top">
           <div className="footer__cta">
-            <SectionEyebrow className="eyebrow--on-dark">Ready when you are</SectionEyebrow>
+            <SectionEyebrow className="eyebrow--on-dark">{t('footer.eyebrow')}</SectionEyebrow>
             <h2 className="footer__title">
-              <span>Know your rights.</span>
+              <span>{t('tagline.line1')}</span>
               <span>
-                Know your <em>next step.</em>
+                {t('tagline.line2Prefix')} <em>{t('tagline.highlight')}</em>
               </span>
             </h2>
-            <p className="footer__lead">Free to use. Information, not legal advice.</p>
+            <p className="footer__lead">{t('footer.lead')}</p>
             <div className="footer__actions">
-              <Button to="/auth/sign-in" arrow size="xl">Get Started</Button>
-              <Button href="#how-it-works" variant="outline" size="xl">How it works</Button>
+              <Button to="/auth/sign-in" arrow size="xl">{t('nav.getStarted')}</Button>
+              <Button href="#how-it-works" variant="outline" size="xl">{t('hero.howItWorks')}</Button>
             </div>
           </div>
           <FooterFeedbackForm />
@@ -33,7 +35,7 @@ function Footer() {
         <div className="footer__nav">
           <FooterBrand />
           {footerColumns.map((column) => (
-            <FooterNavigationColumn key={column.title} {...column} />
+            <FooterNavigationColumn key={column.id} {...column} />
           ))}
         </div>
 

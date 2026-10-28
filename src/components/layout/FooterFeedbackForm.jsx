@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { ArrowRight, CircleAlert, CircleHelp, Lock, ThumbsUp } from 'lucide-react'
 import Button from '../ui/Button.jsx'
 import { FEEDBACK_MAX_LENGTH, feedbackTypes } from '../../data/footer.js'
@@ -7,9 +8,10 @@ import { submitFeedback } from '../../services/feedbackService.js'
 const typeIcons = { helpful: ThumbsUp, 'not-sure': CircleHelp, 'needs-fixing': CircleAlert }
 
 function FooterFeedbackForm() {
+  const { t } = useTranslation()
   const [type, setType] = useState('helpful')
   const [message, setMessage] = useState('')
-  const [status, setStatus] = useState(null) // null | { tone: 'error' | 'info', text }
+  const [status, setStatus] = useState(null) // null | { tone: 'error' | 'info', key }
   const textareaRef = useRef(null)
   const cardRef = useRef(null)
   const [tilting, setTilting] = useState(false)
@@ -17,16 +19,13 @@ function FooterFeedbackForm() {
   const handleSubmit = async (event) => {
     event.preventDefault()
     if (!message.trim()) {
-      setStatus({ tone: 'error', text: 'Please tell us what to improve before sending.' })
+      setStatus({ tone: 'error', key: 'footer.feedback.errorEmpty' })
       textareaRef.current?.focus()
       return
     }
     const result = await submitFeedback({ type, message: message.trim() })
     if (!result.ok) {
-      setStatus({
-        tone: 'info',
-        text: 'The feedback service is not connected yet, so your message was not sent. It is still here if you want to copy it.',
-      })
+      setStatus({ tone: 'info', key: 'footer.feedback.notConnected' })
     }
   }
 
@@ -67,15 +66,15 @@ function FooterFeedbackForm() {
       noValidate
       aria-labelledby="feedback-title"
     >
-      <h2 className="feedback__title" id="feedback-title">Help us get it right</h2>
+      <h2 className="feedback__title" id="feedback-title">{t('footer.feedback.title')}</h2>
       <p className="feedback__sub">
-        Spot something unclear or incorrect? Tell us.
+        {t('footer.feedback.sub1')}
         <br />
-        We review every report.
+        {t('footer.feedback.sub2')}
       </p>
 
-      <div className="feedback__types" role="group" aria-label="Feedback type">
-        {feedbackTypes.map(({ value, label }) => {
+      <div className="feedback__types" role="group" aria-label={t('footer.feedback.typesAria')}>
+        {feedbackTypes.map((value) => {
           const Icon = typeIcons[value]
           const selected = type === value
           return (
@@ -87,19 +86,19 @@ function FooterFeedbackForm() {
               onClick={() => setType(value)}
             >
               <Icon aria-hidden="true" strokeWidth={1.75} />
-              {label}
+              {t(`footer.feedback.types.${value}`)}
             </button>
           )
         })}
       </div>
 
       <div className="feedback__field">
-        <label className="sr-only" htmlFor="feedback-message">What should we improve?</label>
+        <label className="sr-only" htmlFor="feedback-message">{t('footer.feedback.placeholder')}</label>
         <textarea
           id="feedback-message"
           ref={textareaRef}
           className="feedback__textarea"
-          placeholder="What should we improve?"
+          placeholder={t('footer.feedback.placeholder')}
           maxLength={FEEDBACK_MAX_LENGTH}
           value={message}
           aria-describedby="feedback-privacy feedback-status"
@@ -113,21 +112,21 @@ function FooterFeedbackForm() {
 
       <p className="feedback__privacy" id="feedback-privacy">
         <Lock aria-hidden="true" strokeWidth={1.5} />
-        Please don’t include personal or sensitive details.
+        {t('footer.feedback.privacy')}
       </p>
 
-      <Button type="submit" className="feedback__submit">Send feedback</Button>
+      <Button type="submit" className="feedback__submit">{t('footer.feedback.send')}</Button>
 
       <p
         className={`feedback__status${status ? ` feedback__status--${status.tone}` : ''}`}
         id="feedback-status"
         role="status"
       >
-        {status?.text}
+        {status ? t(status.key) : null}
       </p>
 
       <button type="button" className="feedback__report" onClick={startIncorrectReport}>
-        <span className="feedback__report-text">Report an incorrect answer</span>
+        <span className="feedback__report-text">{t('footer.feedback.report')}</span>
         <ArrowRight aria-hidden="true" strokeWidth={2} />
       </button>
     </form>

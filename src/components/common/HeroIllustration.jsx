@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { Compass, FileText, Users } from 'lucide-react'
 import { guidanceCards } from '../../data/content.js'
 
@@ -14,6 +15,7 @@ function Tree({ x, y }) {
 }
 
 function HeroIllustration() {
+  const { t } = useTranslation()
   return (
     <div className="hero-art">
       <svg className="hero-art__svg" viewBox="0 0 790 700" aria-hidden="true" focusable="false">
@@ -69,12 +71,12 @@ function HeroIllustration() {
       </svg>
 
       <ul className="hero-art__cards">
-        {guidanceCards.map(({ id, label, icon }, index) => {
+        {guidanceCards.map(({ id, icon }, index) => {
           const Icon = cardIcons[icon]
           return (
             <li className={`hero-art__card hero-art__card--${index + 1}`} key={id}>
               <Icon aria-hidden="true" strokeWidth={1.5} />
-              <span>{label}</span>
+              <span>{t(`hero.cards.${id}`)}</span>
             </li>
           )
         })}

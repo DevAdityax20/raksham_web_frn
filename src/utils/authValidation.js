@@ -1,14 +1,16 @@
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 
+// Validators return a translation key (or '' when valid); callers translate it with t().
+
 // Accepts an email address or a mobile number (10-13 digits, optional +, spaces or dashes).
 export function validateIdentifier(value) {
   const trimmed = value.trim()
-  if (!trimmed) return 'Please enter your email or mobile number.'
+  if (!trimmed) return 'auth.errors.identifierRequired'
   if (EMAIL_PATTERN.test(trimmed)) return ''
   const looksLikePhone = /^\+?[\d\s-]+$/.test(trimmed)
   const digits = trimmed.replace(/\D/g, '')
   if (looksLikePhone && digits.length >= 10 && digits.length <= 13) return ''
-  return 'Enter a valid email address or mobile number.'
+  return 'auth.errors.identifierInvalid'
 }
 
 export const MIN_PASSWORD_LENGTH = 8
@@ -23,5 +25,3 @@ export function passwordStrength(password) {
   if (classes >= 2) return 2
   return 1
 }
-
-export const strengthLabels = ['', 'Weak', 'Good', 'Strong']

@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Eye, EyeOff } from 'lucide-react'
 
 function PasswordInput({ id, value, onChange, placeholder, autoComplete, invalid, describedBy, inputRef }) {
+  const { t } = useTranslation()
   const [visible, setVisible] = useState(false)
 
   return (
@@ -21,7 +23,7 @@ function PasswordInput({ id, value, onChange, placeholder, autoComplete, invalid
       <button
         type="button"
         className="auth-password__toggle"
-        aria-label={visible ? 'Hide password' : 'Show password'}
+        aria-label={visible ? t('auth.password.hide') : t('auth.password.show')}
         aria-pressed={visible}
         onClick={() => setVisible((current) => !current)}
       >

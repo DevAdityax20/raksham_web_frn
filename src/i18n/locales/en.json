@@ -1,0 +1,354 @@
+{
+  "language": {
+    "switchTo": "Switch language to {{language}}",
+    "group": "Language"
+  },
+  "tagline": {
+    "line1": "Know your rights.",
+    "line2Prefix": "Know your",
+    "highlight": "next step."
+  },
+  "trust": {
+    "free": "Free to use",
+    "verified": "Verified resources",
+    "info": "Information, not legal advice"
+  },
+  "nav": {
+    "links": {
+      "home": "Home",
+      "how-it-works": "How it works",
+      "official-resources": "Resources",
+      "about": "About"
+    },
+    "getStarted": "Get Started",
+    "primary": "Primary",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "badge": "Your legal support companion",
+    "lead": "Raksham provides clear, step-by-step guidance for common legal issues in India, with verified resources and support options. No legal jargon, just clear answers.",
+    "howItWorks": "How it works",
+    "cards": {
+      "rights": "Understand your rights",
+      "guidance": "Get clear guidance",
+      "resources": "Find trusted resources"
+    }
+  },
+  "helplines": {
+    "title": "Need urgent help?",
+    "sub": "Contact official helplines",
+    "callAria": "Call {{number}}, {{name}}",
+    "items": {
+      "112": { "name": "National Emergency", "description": "For immediate assistance" },
+      "181": { "name": "Women's Helpline", "description": "24×7 support" },
+      "1930": { "name": "Cyber Fraud Helpline", "description": "Report online fraud" },
+      "1915": { "name": "Consumer Helpline", "description": "Consumer-related issues" }
+    }
+  },
+  "why": {
+    "eyebrow": "Why Raksham",
+    "line1": "Legal help shouldn’t be confusing.",
+    "line2": "We make it simple.",
+    "features": {
+      "categories": { "lead": "5+", "title": "Legal categories", "description": "Covering everyday legal issues in India" },
+      "guidance": { "lead": "Step-by-step", "title": "Guidance", "description": "Easy to understand in simple language" },
+      "resources": { "lead": "Verified", "title": "Resource directory", "description": "Helplines, legal aid centers and trusted organizations" },
+      "access": { "lead": "Accessible", "title": "Across India", "description": "Information available in multiple Indian languages" }
+    }
+  },
+  "categories": {
+    "eyebrow": "Get help",
+    "title": "What do you need help with?",
+    "sub": "Choose a category to get clear, step-by-step guidance in simple language.",
+    "cta": "Get guidance",
+    "assistTitle": "Not sure where to start?",
+    "assistBody": "We’ll guide you to the right category.",
+    "assistButton": "Answer a few questions",
+    "items": {
+      "womens-safety": { "title": "Women's Safety & Rights", "description": "Harassment, domestic violence\nand more." },
+      "cyber-crime": { "title": "Cyber Crime", "description": "Online fraud, hacking,\nand scams." },
+      "consumer-rights": { "title": "Consumer Rights", "description": "Defective products, refunds,\nand complaints." },
+      "property-housing": { "title": "Property & Housing", "description": "Disputes, rentals,\nand tenancy." },
+      "government-services": { "title": "Government Services", "description": "Bribery, service issues,\nand RTI." },
+      "general-legal-help": { "title": "General Legal Help", "description": "Basic guidance\nand common queries." }
+    }
+  },
+  "how": {
+    "eyebrow": "How it works",
+    "titlePrefix": "Clear guidance in",
+    "titleHighlight": "4 simple steps.",
+    "sub": "No legal jargon. Just a clear path from your problem to your next step.",
+    "exploreCategories": "Explore categories",
+    "steps": {
+      "choose": { "title": "Choose your issue", "description": "Pick the category that matches your situation." },
+      "answer": { "title": "Answer a few questions", "description": "Simple questions help us understand what you're facing." },
+      "guidance": { "title": "Get step-by-step guidance", "description": "See your rights and what to do next, in plain language." },
+      "support": { "title": "Reach the right support", "description": "Find verified helplines, legal aid centers, and trusted organizations." }
+    }
+  },
+  "human": {
+    "eyebrow": "Human help",
+    "preview": "Preview",
+    "status": "Availability varies and is being confirmed.",
+    "titleLine1": "Sometimes you need",
+    "titleHighlight": "a person",
+    "titleRest": ", not just guidance.",
+    "lead": "When your situation needs a qualified advocate, Raksham can help you find a verified one by practice area and language. Credentials and fees are shown upfront, with no pressure.",
+    "points": {
+      "credentials": "Verified credentials",
+      "fees": "Fees shown upfront",
+      "choice": "Your choice, no pressure"
+    },
+    "learnMore": "Learn more",
+    "disclaimer": "Advocates are independent professionals. Raksham is not a law firm and does not provide legal advice."
+  },
+  "resources": {
+    "eyebrow": "Official resources",
+    "title": "Find verified help, not guesswork.",
+    "sub": "Browse official services and support organizations by category and location. Every listing shows who runs it and when it was last reviewed.",
+    "filters": {
+      "aria": "Filter official resources",
+      "category": "Category",
+      "categoryPlaceholder": "Select a category",
+      "city": "City",
+      "cityPlaceholder": "Select your city",
+      "type": "Type",
+      "typePlaceholder": "Select type",
+      "search": "Search"
+    },
+    "cities": {
+      "delhi": "Delhi",
+      "mumbai": "Mumbai",
+      "bengaluru": "Bengaluru",
+      "chennai": "Chennai",
+      "kolkata": "Kolkata",
+      "hyderabad": "Hyderabad"
+    },
+    "types": {
+      "government-authority": "Government authority",
+      "legal-aid-service": "Legal aid service",
+      "support-organization": "Support organization",
+      "official-portal": "Official portal"
+    },
+    "badges": {
+      "official": "Official",
+      "support-organization": "Support organization"
+    },
+    "sample": "Sample data",
+    "records": {
+      "sample-state-legal-services": {
+        "title": "Sample: State Legal Services Authority",
+        "operator": "Run by State Government",
+        "description": "Provides free legal aid and support for eligible individuals."
+      },
+      "sample-women-support-center": {
+        "title": "Sample: Women Support Center",
+        "operator": "Run by Non-profit Organization",
+        "description": "Support services for women facing harassment, domestic violence and more."
+      },
+      "sample-cyber-crime-portal": {
+        "title": "Sample: Cyber Crime Portal",
+        "operator": "Run by Government Authority",
+        "description": "Report online fraud, cyber crime and internet-related offences."
+      }
+    },
+    "categoryLabels": {
+      "general-legal-help": "General legal help",
+      "womens-safety": "Women's safety & rights",
+      "cyber-crime": "Cyber crime"
+    },
+    "card": {
+      "category": "Category",
+      "contact": "Contact",
+      "contactValue": "Verified contact shown here",
+      "lastReviewed": "Last reviewed: {{date}}",
+      "viewDetails": "View details",
+      "viewDetailsAria": "View details for {{title}}"
+    },
+    "empty": {
+      "title": "No matches yet.",
+      "body": "Try another city or category.",
+      "clear": "Clear filters"
+    },
+    "disclaimer": "Raksham links to official sources. We are not affiliated with any government body.",
+    "browse": "Browse full directory"
+  },
+  "privacy": {
+    "eyebrow": "Privacy and safety",
+    "titleLine1": "You stay in control",
+    "titleLine2": "of your information.",
+    "sub": "We’re designed to be safe, transparent and respectful of your privacy.",
+    "rows": {
+      "needed": { "title": "We ask only what’s needed", "description": "No unnecessary personal details." },
+      "review": { "title": "Nothing is filed or shared without your review", "description": "You confirm every step." },
+      "exit": { "title": "Quick exit and safe notifications", "description": "Sensitive content is never shown in notifications by default." },
+      "data": { "title": "Access and delete your data", "description": "You can view, export, or delete your saved information." }
+    },
+    "policyLink": "Read our privacy policy",
+    "expectEyebrow": "What Raksham can and cannot do",
+    "expectTitle": "Know what to expect.",
+    "canHeading": "Raksham can:",
+    "canDo": [
+      "Explain your rights in plain language.",
+      "Show source-backed next steps.",
+      "Point you to official resources.",
+      "Help you prepare a factual summary."
+    ],
+    "cannotHeading": "Raksham cannot:",
+    "cannotDo": [
+      "Replace a lawyer, police, or emergency services.",
+      "Guarantee a legal outcome.",
+      "File anything on your behalf without your confirmation."
+    ],
+    "note": "Raksham provides general legal information, not legal advice."
+  },
+  "footer": {
+    "eyebrow": "Ready when you are",
+    "lead": "Free to use. Information, not legal advice.",
+    "feedback": {
+      "title": "Help us get it right",
+      "sub1": "Spot something unclear or incorrect? Tell us.",
+      "sub2": "We review every report.",
+      "typesAria": "Feedback type",
+      "types": {
+        "helpful": "Helpful",
+        "not-sure": "Not sure",
+        "needs-fixing": "Needs fixing"
+      },
+      "placeholder": "What should we improve?",
+      "privacy": "Please don’t include personal or sensitive details.",
+      "send": "Send feedback",
+      "errorEmpty": "Please tell us what to improve before sending.",
+      "notConnected": "The feedback service is not connected yet, so your message was not sent. It is still here if you want to copy it.",
+      "report": "Report an incorrect answer"
+    },
+    "brand": {
+      "description": "AI-guided legal information and navigation for people in India.",
+      "logoAria": "Raksham, back to top"
+    },
+    "columns": {
+      "getHelp": {
+        "title": "Get help",
+        "links": {
+          "domestic": "Domestic abuse and family harassment",
+          "bribery": "Bribery and government services",
+          "police": "Police encounters and citizen rights",
+          "cyber": "Cybercrime and blackmail",
+          "general": "General legal help"
+        }
+      },
+      "explore": {
+        "title": "Explore",
+        "links": {
+          "how": "How it works",
+          "directory": "Resource directory",
+          "privacy": "Privacy and safety",
+          "report": "Report an issue"
+        }
+      },
+      "company": {
+        "title": "Company",
+        "links": {
+          "about": "About",
+          "contact": "Contact",
+          "policy": "Privacy policy",
+          "terms": "Terms"
+        }
+      }
+    },
+    "comingSoon": "Coming soon",
+    "emergencyPrefix": "In immediate danger? Call",
+    "emergencyNumber": "112.",
+    "legal1": "Raksham provides general legal information, not legal advice.",
+    "legal2": "Raksham is not affiliated with any government body.",
+    "copyright": "© {{year}} Raksham. All rights reserved."
+  },
+  "auth": {
+    "brand": {
+      "homeAria": "Raksham home",
+      "lead1": "Clear, step-by-step legal guidance",
+      "lead2": "in simple language.",
+      "disclaimer": "General legal information, not legal advice."
+    },
+    "benefits": {
+      "plain": { "title": "Plain-language guidance", "description": "Understand your rights in simple terms." },
+      "verified": { "title": "Verified official resources", "description": "Access trusted government and support organizations." },
+      "control": { "title": "You control what you share", "description": "Share only what’s needed, on your terms." }
+    },
+    "quickExit": "Quick exit",
+    "tabs": {
+      "aria": "Account",
+      "signIn": "Sign in",
+      "createAccount": "Create account"
+    },
+    "common": {
+      "identifierLabel": "Email or mobile number",
+      "identifierPlaceholder": "Enter your email or mobile number",
+      "passwordLabel": "Password",
+      "optional": "(optional)"
+    },
+    "signIn": {
+      "title": "Welcome back",
+      "sub": "Sign in to continue your guidance.",
+      "passwordPlaceholder": "Enter your password",
+      "forgot": "Forgot password?",
+      "forgotUnavailable": "Password recovery is not available yet.",
+      "submit": "Sign in",
+      "submitting": "Signing in...",
+      "notConnected": "Sign-in is not connected yet, so you were not signed in. Nothing was sent.",
+      "or": "or",
+      "google": "Continue with Google",
+      "googleOptional": "(Optional)",
+      "googleUnavailable": "Google sign-in is not set up yet.",
+      "anonymous": "Continue without an account",
+      "note": "Limited features. Scope of anonymous access to be confirmed."
+    },
+    "createAccount": {
+      "title": "Create your account",
+      "sub": "We only ask for what we need.",
+      "nameLabel": "Full name",
+      "namePlaceholder": "Enter your name or nickname",
+      "nameHint": "You can use a nickname.",
+      "passwordPlaceholder": "Create a password",
+      "termsPrefix": "I agree to the",
+      "termsLink": "Terms of Use",
+      "termsSuffix": "",
+      "privacyPrefix": "I have read the",
+      "privacyLink": "Privacy Policy",
+      "privacySuffix": "",
+      "legal1": "Raksham provides general legal information, not legal advice.",
+      "legal2": "We can’t guarantee absolute anonymity.",
+      "submit": "Create account",
+      "submitting": "Creating account...",
+      "notConnected": "Account creation is not connected yet, so no account was created. Nothing was sent.",
+      "advocatePrefix": "Are you an advocate?",
+      "advocateLink": "Apply for verification",
+      "pending": "Pending approval"
+    },
+    "errors": {
+      "identifierRequired": "Please enter your email or mobile number.",
+      "identifierInvalid": "Enter a valid email address or mobile number.",
+      "passwordRequired": "Please enter your password.",
+      "passwordWeak": "Password is too weak. Use at least 8 characters.",
+      "terms": "Please accept both to continue."
+    },
+    "password": {
+      "show": "Show password",
+      "hide": "Hide password",
+      "hint": "At least 8 characters.",
+      "strength": "Strength: {{label}}.",
+      "labels": { "1": "Weak", "2": "Good", "3": "Strong" }
+    },
+    "safety": {
+      "title": "Safety options",
+      "label": "Hide sensitive content in notifications",
+      "hint": "Helpful on shared devices."
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you’re looking for doesn’t exist.",
+    "back": "Back to home"
+  }
+}

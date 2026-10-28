@@ -1,11 +1,13 @@
+import { useTranslation } from 'react-i18next'
 import Button from '../components/ui/Button.jsx'
 
 function NotFoundPage() {
+  const { t } = useTranslation()
   return (
     <main className="not-found">
-      <h1>Page not found</h1>
-      <p>The page you’re looking for doesn’t exist.</p>
-      <Button to="/" arrow>Back to home</Button>
+      <h1>{t('notFound.title')}</h1>
+      <p>{t('notFound.body')}</p>
+      <Button to="/" arrow>{t('notFound.back')}</Button>
     </main>
   )
 }

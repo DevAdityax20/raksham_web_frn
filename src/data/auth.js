@@ -1,9 +1,10 @@
 import { BookOpen, Lock, ShieldCheck } from 'lucide-react'
 
+// Text lives in the locale files under `auth.benefits.<id>`.
 export const authBenefits = [
-  { icon: BookOpen, title: 'Plain-language guidance', description: 'Understand your rights in simple terms.' },
-  { icon: ShieldCheck, title: 'Verified official resources', description: 'Access trusted government and support organizations.' },
-  { icon: Lock, title: 'You control what you share', description: 'Share only what’s needed, on your terms.' },
+  { id: 'plain', icon: BookOpen },
+  { id: 'verified', icon: ShieldCheck },
+  { id: 'control', icon: Lock },
 ]
 
 // Neutral public page for Quick exit. Client code cannot reliably erase history.

@@ -1,7 +1,9 @@
-import { passwordStrength, strengthLabels } from '../../utils/authValidation.js'
+import { useTranslation } from 'react-i18next'
+import { passwordStrength } from '../../utils/authValidation.js'
 
 // Three-segment meter. Heuristic feedback only; not a security audit.
 function PasswordStrength({ password, invalid }) {
+  const { t } = useTranslation()
   const score = passwordStrength(password)
   const tone = score === 1 && (invalid || password) ? 'weak' : 'ok'
 
@@ -16,7 +18,10 @@ function PasswordStrength({ password, invalid }) {
         ))}
       </div>
       <p className="strength__text" aria-live="polite">
-        At least 8 characters.{score > 0 && <span className="sr-only"> Strength: {strengthLabels[score]}.</span>}
+        {t('auth.password.hint')}
+        {score > 0 && (
+          <span className="sr-only"> {t('auth.password.strength', { label: t(`auth.password.labels.${score}`) })}</span>
+        )}
       </p>
     </div>
   )

@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { ChevronDown, ShieldCheck } from 'lucide-react'
 
 // Preference UI only: the setting is not yet connected to any notification system.
 function SafetyOptions({ hideSensitive, onHideSensitiveChange }) {
+  const { t } = useTranslation()
   const [open, setOpen] = useState(() => window.matchMedia('(min-width: 769px)').matches)
 
   return (
@@ -15,7 +17,7 @@ function SafetyOptions({ hideSensitive, onHideSensitiveChange }) {
         onClick={() => setOpen((current) => !current)}
       >
         <ShieldCheck aria-hidden="true" strokeWidth={1.75} />
-        <span>Safety options</span>
+        <span>{t('auth.safety.title')}</span>
         <ChevronDown className="safety__chevron" aria-hidden="true" strokeWidth={2} />
       </button>
 
@@ -31,8 +33,8 @@ function SafetyOptions({ hideSensitive, onHideSensitiveChange }) {
           <span className="switch__thumb" />
         </button>
         <div>
-          <p className="safety__label" id="safety-switch-label">Hide sensitive content in notifications</p>
-          <p className="safety__hint">Helpful on shared devices.</p>
+          <p className="safety__label" id="safety-switch-label">{t('auth.safety.label')}</p>
+          <p className="safety__hint">{t('auth.safety.hint')}</p>
         </div>
       </div>
     </div>

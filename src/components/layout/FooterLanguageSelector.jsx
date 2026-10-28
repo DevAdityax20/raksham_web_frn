@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import { languages } from '../../data/footer.js'
+import { useTranslation } from 'react-i18next'
+import { languages } from '../../i18n/index.js'
+import { useLanguage } from '../../i18n/useLanguage.js'
 
-// Selection state only. Site-wide translation is not implemented; connect
-// `language` to a localization layer here when one exists.
 function FooterLanguageSelector() {
-  const [language, setLanguage] = useState('en')
+  const { t } = useTranslation()
+  const { language, setLanguage } = useLanguage()
 
   return (
-    <div className="lang" role="group" aria-label="Language">
+    <div className="lang" role="group" aria-label={t('language.group')}>
       {languages.map(({ code, label, lang }) => (
         <button
           key={code}

@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { LoaderCircle } from 'lucide-react'
 import AuthLayout from '../../components/auth/AuthLayout.jsx'
 import AuthField, { FieldError } from '../../components/auth/AuthField.jsx'
@@ -11,14 +12,16 @@ import { createAccount } from '../../services/authService.js'
 import { MIN_PASSWORD_LENGTH, validateIdentifier } from '../../utils/authValidation.js'
 
 function CreateAccount() {
+  const { t } = useTranslation()
   const [name, setName] = useState('')
   const [identifier, setIdentifier] = useState('')
   const [password, setPassword] = useState('')
   const [hideSensitive, setHideSensitive] = useState(true)
   const [acceptTerms, setAcceptTerms] = useState(false)
   const [acceptPrivacy, setAcceptPrivacy] = useState(false)
+  // Errors and status hold translation keys so they re-translate when the language changes.
   const [errors, setErrors] = useState({})
-  const [status, setStatus] = useState(null)
+  const [statusKey, setStatusKey] = useState(null)
   const [loading, setLoading] = useState(false)
   const identifierRef = useRef(null)
   const passwordRef = useRef(null)
@@ -31,11 +34,11 @@ function CreateAccount() {
     event.preventDefault()
     const nextErrors = {
       identifier: validateIdentifier(identifier),
-      password: password.length >= MIN_PASSWORD_LENGTH ? '' : 'Password is too weak. Use at least 8 characters.',
-      terms: acceptTerms && acceptPrivacy ? '' : 'Please accept both to continue.',
+      password: password.length >= MIN_PASSWORD_LENGTH ? '' : 'auth.errors.passwordWeak',
+      terms: acceptTerms && acceptPrivacy ? '' : 'auth.errors.terms',
     }
     setErrors(nextErrors)
-    setStatus(null)
+    setStatusKey(null)
     if (nextErrors.identifier) return identifierRef.current?.focus()
     if (nextErrors.password) return passwordRef.current?.focus()
     if (nextErrors.terms) return termsRef.current?.focus()
@@ -51,30 +54,34 @@ function CreateAccount() {
     setLoading(false)
     if (!result.ok) {
       setPassword('')
-      setStatus({ text: 'Account creation is not connected yet, so no account was created. Nothing was sent.' })
+      setStatusKey('auth.createAccount.notConnected')
     }
   }
 
   return (
     <AuthLayout active="create-account">
-      <h1 className="auth-title">Create your account</h1>
-      <p className="auth-sub">We only ask for what we need.</p>
+      <h1 className="auth-title">{t('auth.createAccount.title')}</h1>
+      <p className="auth-sub">{t('auth.createAccount.sub')}</p>
 
       <form className="auth-form auth-form--tight" onSubmit={handleSubmit} noValidate>
-        <AuthField id="signup-name" label="Full name" optional hint="You can use a nickname.">
+        <AuthField id="signup-name" label={t('auth.createAccount.nameLabel')} optional hint={t('auth.createAccount.nameHint')}>
           <input
             id="signup-name"
             className="auth-input"
             type="text"
             value={name}
             onChange={(event) => setName(event.target.value)}
-            placeholder="Enter your name or nickname"
+            placeholder={t('auth.createAccount.namePlaceholder')}
             autoComplete="name"
             aria-describedby="signup-name-hint"
           />
         </AuthField>
 
-        <AuthField id="signup-identifier" label="Email or mobile number" error={errors.identifier}>
+        <AuthField
+          id="signup-identifier"
+          label={t('auth.common.identifierLabel')}
+          error={errors.identifier && t(errors.identifier)}
+        >
           <input
             id="signup-identifier"
             ref={identifierRef}
@@ -82,20 +89,24 @@ function CreateAccount() {
             type="text"
             value={identifier}
             onChange={(event) => setIdentifier(event.target.value)}
-            placeholder="Enter your email or mobile number"
+            placeholder={t('auth.common.identifierPlaceholder')}
             autoComplete="username"
             aria-invalid={errors.identifier ? true : undefined}
             aria-describedby={errors.identifier ? 'signup-identifier-error' : undefined}
           />
         </AuthField>
 
-        <AuthField id="signup-password" label="Password" error={errors.password}>
+        <AuthField
+          id="signup-password"
+          label={t('auth.common.passwordLabel')}
+          error={errors.password && t(errors.password)}
+        >
           <PasswordInput
             id="signup-password"
             inputRef={passwordRef}
             value={password}
             onChange={setPassword}
-            placeholder="Create a password"
+            placeholder={t('auth.createAccount.passwordPlaceholder')}
             autoComplete="new-password"
             invalid={Boolean(errors.password)}
             describedBy={errors.password ? 'signup-password-error' : undefined}
@@ -115,7 +126,10 @@ function CreateAccount() {
               aria-describedby={errors.terms ? 'signup-terms-error' : undefined}
               aria-invalid={errors.terms && !acceptTerms ? true : undefined}
             />
-            <span>I agree to the <PlaceholderLink>Terms of Use</PlaceholderLink></span>
+            <span>
+              {t('auth.createAccount.termsPrefix')} <PlaceholderLink>{t('auth.createAccount.termsLink')}</PlaceholderLink>
+              {t('auth.createAccount.termsSuffix') && ` ${t('auth.createAccount.termsSuffix')}`}
+            </span>
           </label>
           <label className="auth-check">
             <input
@@ -125,15 +139,18 @@ function CreateAccount() {
               aria-describedby={errors.terms ? 'signup-terms-error' : undefined}
               aria-invalid={errors.terms && !acceptPrivacy ? true : undefined}
             />
-            <span>I have read the <PlaceholderLink>Privacy Policy</PlaceholderLink></span>
+            <span>
+              {t('auth.createAccount.privacyPrefix')} <PlaceholderLink>{t('auth.createAccount.privacyLink')}</PlaceholderLink>
+              {t('auth.createAccount.privacySuffix') && ` ${t('auth.createAccount.privacySuffix')}`}
+            </span>
           </label>
-          <FieldError id="signup-terms-error">{errors.terms}</FieldError>
+          <FieldError id="signup-terms-error">{errors.terms && t(errors.terms)}</FieldError>
         </div>
 
         <p className="auth-legal">
-          Raksham provides general legal information, not legal advice.
+          {t('auth.createAccount.legal1')}
           <br />
-          We can’t guarantee absolute anonymity.
+          {t('auth.createAccount.legal2')}
         </p>
 
         <Button
@@ -145,21 +162,23 @@ function CreateAccount() {
           {loading ? (
             <>
               <LoaderCircle className="auth-spinner" aria-hidden="true" strokeWidth={2} />
-              Creating account...
+              {t('auth.createAccount.submitting')}
             </>
           ) : (
-            'Create account'
+            t('auth.createAccount.submit')
           )}
         </Button>
 
-        <p className={`auth-status${status ? ' is-visible' : ''}`} role="status">{status?.text}</p>
+        <p className={`auth-status${statusKey ? ' is-visible' : ''}`} role="status">
+          {statusKey ? t(statusKey) : null}
+        </p>
 
         <p className="auth-advocate">
           <span>
-            Are you an advocate? <PlaceholderLink>Apply for verification</PlaceholderLink>
+            {t('auth.createAccount.advocatePrefix')} <PlaceholderLink>{t('auth.createAccount.advocateLink')}</PlaceholderLink>
           </span>
           {/* Design placeholder: no verification workflow exists, so this reflects no real status. */}
-          <span className="auth-pill">Pending approval</span>
+          <span className="auth-pill">{t('auth.createAccount.pending')}</span>
         </p>
       </form>
     </AuthLayout>

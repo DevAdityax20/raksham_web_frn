@@ -1,44 +1,36 @@
 // `href: null` marks a destination that has no page yet; it renders as a disabled link.
+// Text lives in the locale files under `footer.columns.<id>`.
 export const footerColumns = [
   {
-    title: 'Get help',
+    id: 'getHelp',
     links: [
-      { label: 'Domestic abuse and family harassment', href: '#get-help' },
-      { label: 'Bribery and government services', href: '#get-help' },
-      { label: 'Police encounters and citizen rights', href: '#get-help' },
-      { label: 'Cybercrime and blackmail', href: '#get-help' },
-      { label: 'General legal help', href: '#get-help' },
+      { id: 'domestic', href: '#get-help' },
+      { id: 'bribery', href: '#get-help' },
+      { id: 'police', href: '#get-help' },
+      { id: 'cyber', href: '#get-help' },
+      { id: 'general', href: '#get-help' },
     ],
   },
   {
-    title: 'Explore',
+    id: 'explore',
     links: [
-      { label: 'How it works', href: '#how-it-works' },
-      { label: 'Resource directory', href: '#official-resources' },
-      { label: 'Privacy and safety', href: '#privacy-safety' },
-      { label: 'Report an issue', href: '#footer-feedback' },
+      { id: 'how', href: '#how-it-works' },
+      { id: 'directory', href: '#official-resources' },
+      { id: 'privacy', href: '#privacy-safety' },
+      { id: 'report', href: '#footer-feedback' },
     ],
   },
   {
-    title: 'Company',
+    id: 'company',
     links: [
-      { label: 'About', href: '#why-raksham' },
-      { label: 'Contact', href: null },
-      { label: 'Privacy policy', href: null },
-      { label: 'Terms', href: null },
+      { id: 'about', href: '#why-raksham' },
+      { id: 'contact', href: null },
+      { id: 'policy', href: null },
+      { id: 'terms', href: null },
     ],
   },
 ]
 
-export const languages = [
-  { code: 'en', label: 'English', lang: 'en' },
-  { code: 'hi', label: 'हिन्दी', lang: 'hi' },
-]
-
-export const feedbackTypes = [
-  { value: 'helpful', label: 'Helpful' },
-  { value: 'not-sure', label: 'Not sure' },
-  { value: 'needs-fixing', label: 'Needs fixing' },
-]
+export const feedbackTypes = ['helpful', 'not-sure', 'needs-fixing']
 
 export const FEEDBACK_MAX_LENGTH = 500

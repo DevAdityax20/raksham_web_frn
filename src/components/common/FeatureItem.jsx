@@ -1,4 +1,7 @@
-function FeatureItem({ icon: Icon, lead, title, description }) {
+import { useTranslation } from 'react-i18next'
+
+function FeatureItem({ id, icon: Icon }) {
+  const { t } = useTranslation()
   return (
     <li className="feature">
       <span className="feature__icon" aria-hidden="true">
@@ -6,10 +9,10 @@ function FeatureItem({ icon: Icon, lead, title, description }) {
       </span>
       <div>
         <h3 className="feature__title">
-          <strong>{lead}</strong>
-          <span>{title}</span>
+          <strong>{t(`why.features.${id}.lead`)}</strong>
+          <span>{t(`why.features.${id}.title`)}</span>
         </h3>
-        <p className="feature__desc">{description}</p>
+        <p className="feature__desc">{t(`why.features.${id}.description`)}</p>
       </div>
     </li>
   )
