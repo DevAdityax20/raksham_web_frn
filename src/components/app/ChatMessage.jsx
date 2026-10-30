@@ -24,7 +24,9 @@ function SachiMessage({ message, active, answers, onAnswer, onSkip }) {
   const answered = question ? answers[question.id] : undefined
 
   let text = ''
-  if (message.kind === 'greeting') text = t('app.chat.greeting', { name: mockUser.name })
+  if (message.kind === 'greeting') {
+    text = message.guest ? t('app.chat.greetingGuest') : t('app.chat.greeting', { name: mockUser.name })
+  }
   if (message.kind === 'question') text = t(`app.chat.questions.${message.qid}.text`)
   if (message.kind === 'dangerYes') text = t('app.chat.dangerYes')
   if (message.kind === 'areaChanged') text = t('app.chat.areaChanged', { area: t(`app.areas.${message.area}`) })

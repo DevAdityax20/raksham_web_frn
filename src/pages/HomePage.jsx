@@ -1,5 +1,6 @@
 import Navbar from '../components/layout/Navbar.jsx'
 import Footer from '../components/layout/Footer.jsx'
+import SachiWidget from '../components/app/SachiWidget.jsx'
 import HeroSection from '../sections/HeroSection.jsx'
 import WhyRakshamSection from '../sections/WhyRakshamSection.jsx'
 import LegalCategoriesSection from '../sections/LegalCategoriesSection.jsx'
@@ -22,6 +23,7 @@ function HomePage() {
         <PrivacySafetySection />
       </main>
       <Footer />
+      <SachiWidget />
     </>
   )
 }

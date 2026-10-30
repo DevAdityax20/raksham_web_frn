@@ -4,8 +4,8 @@ import { requestGuidance } from '../services/sachiService.js'
 
 // Messages store structured data (not translated text) so the conversation re-translates
 // when the language changes and is never reset by it.
-function createInitialState({ description, area }) {
-  const messages = [{ id: 1, role: 'sachi', kind: 'greeting' }]
+function createInitialState({ description, area, guest = false }) {
+  const messages = [{ id: 1, role: 'sachi', kind: 'greeting', guest }]
   if (description) messages.push({ id: 2, role: 'user', kind: 'free', text: description })
   messages.push({ id: 3, role: 'sachi', kind: 'question', qid: sachiQuestions[0].id })
   return { area, messages, answers: {}, index: 0, finished: false, nextId: 4 }

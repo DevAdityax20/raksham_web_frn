@@ -95,6 +95,7 @@
     "skipped": "Skipped",
     "more": "More options",
     "startOver": "Start over",
+    "greetingGuest": "Hi, I’m Sachi. I’ll ask a few short questions to help you find your next step. You can skip any question.",
     "greeting": "Hi {{name}}. I’ll ask a few short questions to help you find your next step. You can skip any question.",
     "areaChanged": "Okay, I’ve switched to: {{area}}.",
     "dangerYes": "If you are in danger right now, please call 112 straight away. You can keep answering here once you are safe.",
@@ -119,6 +120,16 @@
         "options": { "yes": "Yes", "no": "No", "unsure": "Not sure" }
       }
     }
+  },
+  "widget": {
+    "launcher": "Ask Sachi",
+    "open": "Open chat with Sachi",
+    "close": "Close chat",
+    "title": "Sachi",
+    "sub": "General legal information, not legal advice",
+    "call": "Call 112",
+    "openFull": "Open full chat",
+    "startOver": "Start over"
   },
   "placeholder": {
     "title": "{{section}} is coming soon",
