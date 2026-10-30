@@ -11,7 +11,8 @@ function Modal({ title, onClose, children }) {
     const opener = document.activeElement
     const dialog = dialogRef.current
     const focusables = () => dialog.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')
-    focusables()[0]?.focus()
+    // A field marked autoFocus keeps the focus; otherwise start on the first control.
+    if (!dialog.contains(document.activeElement)) focusables()[0]?.focus()
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
 

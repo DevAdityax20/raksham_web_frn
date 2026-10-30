@@ -139,6 +139,157 @@
   "modal": {
     "close": "Close"
   },
+  "library": {
+    "learnData": "Learn about your data",
+    "filters": "Search and filters",
+    "area": "Problem area",
+    "progress": "Progress",
+    "sort": "Sort by",
+    "clear": "Clear filters",
+    "moreActions": "More actions",
+    "open": "Open",
+    "rename": "Rename",
+    "export": "Export",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "save": "Save",
+    "saved": "Saved",
+    "renameTitle": "Rename draft",
+    "renameLabel": "Draft name",
+    "startChat": "Start with Ask Sachi",
+    "spotOutdated": "Spot outdated information?",
+    "reportIt": "Report it",
+    "sampleData": "Sample data",
+    "localOnly": "Sample data: changes stay in this browser tab only and are not saved to an account.",
+    "progressOptions": {
+      "all": "All",
+      "notStarted": "Not started",
+      "inProgress": "In progress",
+      "completed": "Completed"
+    },
+    "sorts": {
+      "updated": "Last updated",
+      "oldest": "Oldest first",
+      "title": "Title A to Z",
+      "created": "Recently created",
+      "progress": "Progress"
+    }
+  },
+  "drafts": {
+    "title": "My drafts",
+    "sub": "Your saved drafts and summaries. You decide what is saved.",
+    "privacyTitle": "Your drafts are saved only on your account.",
+    "privacyBody": "Nothing is filed, sent, or shared by Raksham. You can view, export, or delete them anytime.",
+    "search": "Search drafts by title or topic",
+    "showing_one": "Showing {{count}} draft",
+    "showing_other": "Showing {{count}} drafts",
+    "badge": "Draft",
+    "updated": "Last updated: {{date}}",
+    "notShared": "Not filed or shared",
+    "actionsFor": "More actions for {{title}}",
+    "deleteTitle": "Delete this draft?",
+    "deleteBody": "“{{title}}” will be removed from this list. This cannot be undone.",
+    "emptyTitle": "No drafts found.",
+    "emptyBody": "Your saved drafts and summaries will appear here.",
+    "back": "Back to My drafts",
+    "bodyLabel": "Draft text",
+    "missingTitle": "This draft was not found.",
+    "missingBody": "It may have been deleted. Go back to see your drafts."
+  },
+  "checklist": {
+    "title": "My checklist",
+    "sub": "Your saved next steps. Track what you’ve done and what still needs attention.",
+    "privacyTitle": "Your checklists are saved only on your account.",
+    "privacyBody": "Nothing is filed, sent, or shared by Raksham. You decide what to save and what to do next.",
+    "search": "Search checklist items",
+    "totalTasks": "Total tasks",
+    "completedTasks": "Completed",
+    "remainingTasks": "Remaining",
+    "showing_one": "Showing {{count}} checklist",
+    "showing_other": "Showing {{count}} checklists",
+    "progressOf": "Progress of {{title}}",
+    "tasksDone": "{{done}} of {{total}} tasks done",
+    "percentComplete": "{{percent}}% complete",
+    "open": "Open checklist",
+    "actionsFor": "More actions for {{title}}",
+    "reset": "Reset progress",
+    "resetTitle": "Reset this checklist?",
+    "resetBody": "Every task in “{{title}}” will be marked as not done.",
+    "deleteTitle": "Delete this checklist?",
+    "deleteBody": "“{{title}}” will be removed from this list. This cannot be undone.",
+    "emptyTitle": "No checklists yet.",
+    "emptyBody": "Start a conversation with Sachi to identify practical next steps.",
+    "back": "Back to My checklist",
+    "missingTitle": "This checklist was not found.",
+    "missingBody": "It may have been deleted. Go back to see your checklists.",
+    "noteLabel": "Your note",
+    "notePlaceholder": "Add a note for yourself (optional)",
+    "addNote": "Add a note",
+    "localOnly": "Sample data: your ticks and notes stay in this browser tab only. Raksham does not file or send anything."
+  },
+  "sample": {
+    "drafts": {
+      "d1": {
+        "title": "Incident summary (draft)",
+        "summary": "Short summary of what happened and next steps I’m considering...",
+        "body": "What happened:\n\nWhen and where:\n\nNext steps I’m considering:\n"
+      },
+      "d2": {
+        "title": "Questions for an advocate",
+        "summary": "Questions I want to ask in a consultation...",
+        "body": "1. What are my options?\n2. What documents should I bring?\n3. What will it cost?\n"
+      },
+      "d3": {
+        "title": "Notes from my conversation",
+        "summary": "Key points from my chat with Sachi...",
+        "body": "Key points from my chat with Sachi:\n\n"
+      },
+      "d4": {
+        "title": "Draft checklist",
+        "summary": "Things I need to do and documents to keep...",
+        "body": "Things I need to do:\n\nDocuments to keep:\n"
+      }
+    },
+    "checklists": {
+      "c1": {
+        "title": "Documents and evidence to preserve",
+        "items": {
+          "1": { "text": "Take dated screenshots", "description": "Capture messages, posts or profiles before they change." },
+          "2": { "text": "Save links and usernames", "description": "Keep the web addresses and account names involved." },
+          "3": { "text": "Do not delete the original messages", "description": "Keep the originals even after taking screenshots." },
+          "4": { "text": "Back up to a safe place", "description": "Store a copy somewhere only you can open." },
+          "5": { "text": "Write down dates and times", "description": "Note when each thing happened, as best you remember." }
+        }
+      },
+      "c2": {
+        "title": "Steps to seek official legal assistance",
+        "items": {
+          "1": { "text": "Look up your District Legal Services Authority", "description": "Free legal aid is available to those who qualify." },
+          "2": { "text": "Note the relevant helpline numbers", "description": "Keep them where you can reach them quickly." },
+          "3": { "text": "Gather your ID documents", "description": "Offices usually ask for proof of identity and address." },
+          "4": { "text": "Write a short summary of the situation", "description": "A few lines in your own words saves time later." }
+        }
+      },
+      "c3": {
+        "title": "Questions to prepare before consultation",
+        "items": {
+          "1": { "text": "What outcome do I want?", "description": "Decide what a good result would look like for you." },
+          "2": { "text": "Which documents do I have?", "description": "List what you can show and what is missing." },
+          "3": { "text": "What will it cost?", "description": "Ask about fees before you agree to anything." },
+          "4": { "text": "What are my options?", "description": "Ask what each option means in practice." }
+        }
+      },
+      "c4": {
+        "title": "Important contacts and follow-up actions",
+        "items": {
+          "1": { "text": "Save emergency numbers", "description": "112 for emergencies; keep others you may need." },
+          "2": { "text": "Note the officer’s name and number", "description": "Write down who you spoke to and when." },
+          "3": { "text": "Ask for a copy of anything you sign", "description": "Keep every copy with your other documents." },
+          "4": { "text": "Plan a follow-up date", "description": "Pick a day to check on progress." }
+        }
+      }
+    }
+  },
   "areasPage": {
     "title": "Problem areas",
     "heading": "What do you need help with?",

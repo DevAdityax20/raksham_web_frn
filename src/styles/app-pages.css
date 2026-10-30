@@ -142,8 +142,6 @@
   text-transform: uppercase;
 }
 
-.adv-sub { margin-top: 6px; font-size: 1.2rem; color: var(--app-muted); }
-
 .adv-notice {
   display: flex;
   align-items: center;
@@ -451,7 +449,6 @@
   .area-card__cta { margin-top: 8px; }
   .area-card__button { margin-top: 4px; }
 
-  .adv-sub { font-size: 1.05rem; }
   .adv-notice { align-items: flex-start; padding: 16px; font-size: 0.98rem; }
   .adv-filters { grid-template-columns: 1fr; padding: 16px; }
   .adv-card { padding: 18px 16px; }

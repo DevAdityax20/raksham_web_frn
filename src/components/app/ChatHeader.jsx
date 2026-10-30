@@ -1,28 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowLeft, Check, FileText, MoreHorizontal, PhoneCall } from 'lucide-react'
 import LanguageSwitch from './LanguageSwitch.jsx'
 import QuickExitButton from './QuickExitButton.jsx'
 import { problemAreas } from '../../data/app.js'
-
-// Closes a popup menu on outside click or Escape.
-function usePopup() {
-  const [open, setOpen] = useState(false)
-  const ref = useRef(null)
-  useEffect(() => {
-    if (!open) return undefined
-    const onDown = (event) => ref.current && !ref.current.contains(event.target) && setOpen(false)
-    const onKey = (event) => event.key === 'Escape' && setOpen(false)
-    document.addEventListener('mousedown', onDown)
-    document.addEventListener('keydown', onKey)
-    return () => {
-      document.removeEventListener('mousedown', onDown)
-      document.removeEventListener('keydown', onKey)
-    }
-  }, [open])
-  return [open, setOpen, ref]
-}
+import { usePopup } from '../../hooks/usePopup.js'
 
 function ChatHeader({ area, onChangeArea, onStartOver }) {
   const { t } = useTranslation()

@@ -1,24 +1,10 @@
 import { useTranslation } from 'react-i18next'
-import { ChevronDown } from 'lucide-react'
+import FilterSelect from './FilterSelect.jsx'
 import {
   advocateAreaFilters,
   advocateLanguageFilters,
   advocateModeFilters,
 } from '../../data/sampleAdvocates.js'
-
-function FilterSelect({ id, label, value, onChange, children }) {
-  return (
-    <div className="adv-filter">
-      <label htmlFor={id}>{label}</label>
-      <div className="adv-filter__select">
-        <select id={id} value={value} onChange={(event) => onChange(event.target.value)}>
-          {children}
-        </select>
-        <ChevronDown aria-hidden="true" strokeWidth={2} />
-      </div>
-    </div>
-  )
-}
 
 function AdvocateFilters({ filters, onChange, onClear }) {
   const { t } = useTranslation()

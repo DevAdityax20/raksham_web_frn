@@ -27,7 +27,7 @@ function AdvocatesPage() {
             <h1 className="dash-header__title dash-header__title--page">{t('app.advocatesPage.title')}</h1>
             <span className="adv-preview-pill">{t('app.advocatesPage.preview')}</span>
           </div>
-          <p className="adv-sub">{t('app.advocatesPage.sub')}</p>
+          <p className="page-sub">{t('app.advocatesPage.sub')}</p>
         </div>
         <div className="dash-header__tools">
           <LanguageSwitch />
