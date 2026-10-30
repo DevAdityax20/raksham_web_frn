@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Raksham — Web Frontend
 
 Raksham is an AI-guided legal assistance web application for Indian citizens. This repository holds its customer-facing web frontend.
@@ -75,7 +74,3 @@ Empty directories hold a `.gitkeep` placeholder until they are used.
 - "Resources" and "About" in the navbar point at the helplines and Why Raksham sections until dedicated pages exist.
 - "Learn more" in the Human help preview is an in-page anchor; advocate discovery is not implemented.
 - Helpline numbers and descriptions are reference content in `src/data/helplines.js` and should be verified against official sources before launch.
-=======
-# raksham_web_frn
-Raksham provides clear, step-by-step guidance for common legal issues in India.
->>>>>>> 18d4db650f080874ab5976363d492c9c71343f51
