@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowRight, PhoneCall } from 'lucide-react'
 
-function EmergencyBanner() {
+// `inline` keeps both links on the left, separated by a divider (Problem areas / Advocates pages).
+function EmergencyBanner({ inline = false }) {
   const { t } = useTranslation()
   return (
-    <div className="dash-emergency">
+    <div className={`dash-emergency${inline ? ' dash-emergency--inline' : ''}`}>
       <a className="dash-emergency__call" href="tel:112">
         <PhoneCall aria-hidden="true" strokeWidth={1.6} />
         <span>

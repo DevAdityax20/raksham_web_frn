@@ -41,6 +41,7 @@
   place-items: center;
   width: 68px;
   height: 68px;
+  overflow: hidden;
   border: 3px solid var(--app-yellow);
   border-radius: 50%;
   background: #ffffff;
@@ -52,7 +53,7 @@
 .sachi-widget__launcher:hover .sachi-widget__bubble { transform: scale(1.06); }
 .sachi-widget__launcher:focus-visible { outline: 3px solid var(--app-yellow); outline-offset: 4px; border-radius: 999px; }
 .sachi-widget__bubble svg { width: 28px; height: 28px; }
-.sachi-widget__bubble .chat-avatar { width: 56px; height: 56px; margin: 0; }
+.sachi-widget__bubble .chat-avatar { width: 62px; height: 62px; margin: 0; transform: scale(1.7); }
 
 .sachi-widget__panel {
   display: flex;

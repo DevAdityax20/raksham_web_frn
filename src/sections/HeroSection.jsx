@@ -22,7 +22,7 @@ function HeroSection() {
             </span>
           </h1>
           <p className="hero__lead">{t('hero.lead')}</p>
-          <div className="hero__actions">
+          <div className="hero__actions">o
             <Button to="/auth/sign-in" arrow size="lg">{t('nav.getStarted')}</Button>
             <Button href="#how-it-works" variant="outline" size="lg">{t('hero.howItWorks')}</Button>
           </div>

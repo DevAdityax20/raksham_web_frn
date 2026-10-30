@@ -136,8 +136,86 @@
     "body": "This part of the app hasn’t been built yet. Nothing here is saved or sent.",
     "back": "Back to home"
   },
+  "modal": {
+    "close": "Close"
+  },
   "areasPage": {
     "title": "Problem areas",
-    "sub": "Choose one and Sachi will ask a few short questions."
+    "heading": "What do you need help with?",
+    "sub": "Choose the area that fits best. You can change it later.",
+    "info": "Raksham gives general legal information and points you to official help. It doesn’t replace a lawyer or emergency services.",
+    "start": "Start",
+    "descriptions": {
+      "domestic": "Safety, protection options, and support if someone at home is harming or controlling you.",
+      "bribery": "A public official asks for a bribe, or a government service is delayed or refused.",
+      "police": "You were stopped, searched, questioned, or detained, or your property was taken.",
+      "cyber": "Hacked accounts, online threats, impersonation, or private or fake images shared without consent.",
+      "general": "Something else, or you’re not sure which area fits."
+    },
+    "unsure": {
+      "title": "Not sure where to start?",
+      "body": "Describe what’s happening in your own words and we’ll help you find the right area.",
+      "cta": "Describe it in my own words"
+    }
+  },
+  "advocatesPage": {
+    "title": "Advocates",
+    "preview": "Preview",
+    "sub": "Human help from qualified, verified advocates when your situation needs it.",
+    "noticeLead": "Preview:",
+    "notice": "these are sample profiles and a simulated request. Real advocate listing and booking are not live yet. No request will be sent to anyone.",
+    "notSure": "Not sure you need an advocate?",
+    "seeWhen": "See when human help can be useful.",
+    "filters": {
+      "label": "Filter advocates",
+      "area": "Problem area",
+      "language": "Language",
+      "mode": "Consultation mode",
+      "clear": "Clear filters",
+      "allAreas": "All areas",
+      "allLanguages": "All languages",
+      "allModes": "All modes",
+      "both": "English and हिन्दी",
+      "video": "Video",
+      "phone": "Phone"
+    },
+    "areas": {
+      "domestic": "Domestic abuse and family harassment",
+      "bribery": "Bribery and government services",
+      "police": "Police encounters and citizen rights",
+      "cyber": "Cybercrime and blackmail",
+      "general": "General legal help"
+    },
+    "order": "Listed in no particular order. No ranking or paid placement.",
+    "empty": "No sample profiles match these filters.",
+    "card": {
+      "name": "Sample Advocate {{number}}",
+      "sample": "Sample",
+      "verified": "Verified",
+      "credentials": "Credentials checked (sample)",
+      "jurisdiction": "Jurisdiction:",
+      "jurisdictionValue": "Sample state",
+      "languages": "Languages:",
+      "fee": "Fee:",
+      "feeValue": "shown here before you request",
+      "availability": "Availability:",
+      "availabilityValue": "shown here (sample)",
+      "view": "View profile",
+      "request": "Request consultation",
+      "simulated": "Simulated"
+    },
+    "profile": {
+      "note": "This is a sample profile for the preview. It is not a real advocate.",
+      "areas": "Problem areas",
+      "modes": "Consultation",
+      "close": "Close"
+    },
+    "request": {
+      "title": "Simulated request",
+      "body": "This is a preview of the request step. No request will be sent to {{name}} or anyone else, and nothing will be booked.",
+      "note": "When real advocate listing is live, you will see the fee and availability here before you decide to send a request.",
+      "close": "Got it"
+    },
+    "disclaimer": "Advocates are independent professionals. Raksham is not a law firm and does not provide legal advice."
   }
 }
