@@ -1,0 +1,29 @@
+flowchart TB
+  subgraph a1["1. Sign up"]
+    direction LR
+    start(["Advocate opens<br/>Create account"]) --> role["Choose: I am<br/>an advocate"]
+    role --> acct["Create the<br/>account"]
+  end
+
+  subgraph a2["2. Apply"]
+    direction LR
+    prof["Complete the<br/>profile"] --> docs["Upload proof<br/>documents"]
+    docs --> sub["Submit for<br/>approval"]
+  end
+
+  subgraph a3["3. Review"]
+    direction LR
+    pend["Pending approval<br/>not visible to citizens"] --> rev{"Administrator<br/>decision"}
+    rev -->|"Approved"| live["Listed in search, can receive<br/>chats and bookings"]
+    rev -->|"More information"| more["Advocate adds<br/>details"]
+    more --> pend
+    rev -->|"Rejected"| rej["Notified with<br/>a reason"]
+  end
+
+  a1 --> a2
+  a2 --> a3
+
+  classDef planned fill:#F3F4F6,stroke:#6B7280,color:#1F2937,stroke-dasharray:4 3
+  classDef group fill:#FFFFFF,stroke:#CBD5E1,color:#334155
+  class start,role,acct,prof,docs,sub,pend,rev,live,more,rej planned
+  class a1,a2,a3 group

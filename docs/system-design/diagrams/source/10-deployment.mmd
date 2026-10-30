@@ -1,0 +1,48 @@
+flowchart TB
+  user(["Browser"])
+
+  subgraph edge["Static hosting"]
+    web["Citizen Web App<br/>static build"]:::impl
+    panel["Admin Panel<br/>static build"]:::scaffold
+  end
+
+  subgraph app["Application hosting"]
+    api["Raksham API"]:::planned
+    rt["Real-time chat service"]:::planned
+  end
+
+  subgraph store["Managed data services"]
+    db[("Primary database")]:::planned
+    idx[("Knowledge index")]:::planned
+    files[("Restricted file storage")]:::planned
+  end
+
+  subgraph third["Third-party services"]
+    ai["AI language model"]:::planned
+    speech["Speech services"]:::planned
+    pay["Payment gateway"]:::planned
+    msg["SMS and email"]:::planned
+  end
+
+  logs["Logging and monitoring"]:::planned
+
+  user --> web
+  user --> panel
+  web --> api
+  web --> rt
+  panel --> api
+  api --> db
+  api --> idx
+  api --> files
+  api --> ai
+  api --> speech
+  api --> pay
+  api --> msg
+  pay -.->|"payment confirmation"| api
+  api -.-> logs
+
+  classDef impl fill:#E6F4EA,stroke:#1B7F4B,color:#0B3D24
+  classDef scaffold fill:#FFF4D6,stroke:#B58100,color:#4A3500
+  classDef planned fill:#F3F4F6,stroke:#6B7280,color:#1F2937,stroke-dasharray:4 3
+  classDef group fill:#FFFFFF,stroke:#CBD5E1,color:#334155
+  class edge,app,store,third group

@@ -1,0 +1,20 @@
+flowchart LR
+  login["Admin signs in"] --> check{"Server checks<br/>role and permission"}
+  check -->|"Denied"| denied["Access refused"]
+  check -->|"Allowed"| dash["Dashboard"]
+
+  dash --> adv["Advocate approvals"]
+  dash --> kb["Legal knowledge<br/>and resources"]
+  dash --> price["Pricing and policy"]
+  dash --> sup["Reports, disputes<br/>and refunds"]
+  dash --> cit["Citizen accounts"]
+  dash --> ana["Analytics"]
+
+  adv --> log[("Audit log")]
+  kb --> log
+  price --> log
+  sup --> log
+  cit --> log
+
+  classDef planned fill:#F3F4F6,stroke:#6B7280,color:#1F2937,stroke-dasharray:4 3
+  class login,check,denied,dash,adv,kb,price,sup,cit,ana,log planned

@@ -1,0 +1,71 @@
+erDiagram
+  USER ||--o| USER_PREFERENCE : has
+  USER ||--o| ADVOCATE_PROFILE : may_have
+  ADVOCATE_PROFILE ||--o{ ADVOCATE_PRACTICE_AREA : covers
+  PRACTICE_AREA ||--o{ ADVOCATE_PRACTICE_AREA : classifies
+  ADVOCATE_PROFILE ||--o{ ADVOCATE_DOCUMENT : uploads
+  ADVOCATE_PROFILE ||--o{ VERIFICATION_REQUEST : submits
+  ADMIN_ACCOUNT ||--o{ VERIFICATION_REQUEST : reviews
+  ADMIN_ACCOUNT }o--|| ROLE : assigned
+  ROLE }o--o{ PERMISSION : grants
+
+  USER {
+    uuid id PK
+    string name "optional, nickname allowed"
+    string identifier "email or mobile"
+    string password_hash "never the plain password"
+    string role "citizen or advocate"
+  }
+  USER_PREFERENCE {
+    uuid user_id PK, FK
+    string language
+    boolean hide_sensitive_notifications
+    string department "search preference"
+    string location "search preference"
+    int max_budget_inr "search preference"
+    int min_experience_years "search preference"
+  }
+  ADVOCATE_PROFILE {
+    uuid id PK
+    uuid user_id FK
+    string enrolment_no
+    string city
+    string state
+    int years_experience
+    int fee_per_block_inr "per 5 minutes"
+    string status "see state diagram in 05"
+  }
+  PRACTICE_AREA {
+    uuid id PK
+    string name "department or area of law"
+  }
+  ADVOCATE_PRACTICE_AREA {
+    uuid advocate_id FK
+    uuid practice_area_id FK
+    string jurisdiction
+  }
+  ADVOCATE_DOCUMENT {
+    uuid id PK
+    uuid advocate_id FK
+    string file_ref "restricted storage"
+  }
+  VERIFICATION_REQUEST {
+    uuid id PK
+    uuid advocate_id FK
+    uuid reviewer_id FK
+    string state
+    datetime decided_at
+  }
+  ADMIN_ACCOUNT {
+    uuid id PK
+    string email
+    uuid role_id FK
+  }
+  ROLE {
+    uuid id PK
+    string name
+  }
+  PERMISSION {
+    uuid id PK
+    string code
+  }

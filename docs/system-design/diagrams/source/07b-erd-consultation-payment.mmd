@@ -1,0 +1,53 @@
+erDiagram
+  USER ||--o{ CONSULTATION : requests
+  ADVOCATE_PROFILE ||--o{ CONSULTATION : handles
+  CONSULTATION ||--o| BOOKING : may_be
+  CONSULTATION ||--o{ CHAT_MESSAGE : contains
+  CONSULTATION ||--o{ PAYMENT : paid_by
+  CONSULTATION ||--o| ADVOCATE_EARNING : yields
+  CONSULTATION ||--o| REVIEW : receives
+
+  CONSULTATION {
+    uuid id PK
+    uuid citizen_id FK
+    uuid advocate_id FK
+    string type "instant or booked"
+    string state "see state diagram in 04"
+    int blocks_paid "5-minute blocks"
+    datetime started_at
+    datetime ended_at
+  }
+  BOOKING {
+    uuid id PK
+    uuid consultation_id FK
+    datetime slot_start
+    string matter_summary
+    string status
+  }
+  CHAT_MESSAGE {
+    uuid id PK
+    uuid consultation_id FK
+    uuid sender_id FK
+    string body_protected "encrypted"
+    datetime sent_at
+  }
+  PAYMENT {
+    uuid id PK
+    uuid consultation_id FK
+    int amount_inr
+    string status
+    string gateway_ref "no card data stored"
+  }
+  ADVOCATE_EARNING {
+    uuid id PK
+    uuid advocate_id FK
+    uuid consultation_id FK
+    int amount_inr
+    string payout_status
+  }
+  REVIEW {
+    uuid id PK
+    uuid consultation_id FK
+    int rating
+    string comment
+  }

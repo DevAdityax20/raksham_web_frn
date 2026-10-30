@@ -1,0 +1,46 @@
+erDiagram
+  SACHI_SESSION ||--o{ SACHI_MESSAGE : contains
+  SACHI_MESSAGE ||--o{ MESSAGE_CITATION : cites
+  KNOWLEDGE_SOURCE ||--o{ KNOWLEDGE_PASSAGE : split_into
+  KNOWLEDGE_PASSAGE ||--o{ MESSAGE_CITATION : used_in
+  KNOWLEDGE_SOURCE ||--o{ LEGAL_FORM_GUIDE : describes
+
+  SACHI_SESSION {
+    uuid id PK
+    uuid user_id FK "nullable in private mode"
+    string language
+    string mode "normal or private"
+    datetime expires_at "private sessions are deleted"
+  }
+  SACHI_MESSAGE {
+    uuid id PK
+    uuid session_id FK
+    string author "user or sachi"
+    string text
+    datetime created_at
+  }
+  MESSAGE_CITATION {
+    uuid message_id FK
+    uuid passage_id FK
+  }
+  KNOWLEDGE_SOURCE {
+    uuid id PK
+    string title
+    string kind "law, rule, scheme, procedure, form"
+    string url "official link"
+    date reviewed_on
+  }
+  KNOWLEDGE_PASSAGE {
+    uuid id PK
+    uuid source_id FK
+    string topic
+    string language
+    string text
+  }
+  LEGAL_FORM_GUIDE {
+    uuid id PK
+    uuid source_id FK
+    string form_name
+    string department
+    string steps
+  }

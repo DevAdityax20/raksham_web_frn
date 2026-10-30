@@ -1,0 +1,35 @@
+flowchart LR
+  citizen(["Citizen"])
+  advocate(["Advocate"])
+  admin(["Administrator"])
+
+  subgraph platform["Raksham platform"]
+    web["Citizen Web App"]:::impl
+    panel["Admin Panel"]:::scaffold
+    api["Raksham API"]:::planned
+  end
+
+  ai["AI language model"]:::planned
+  speech["Speech services"]:::planned
+  pay["Payment gateway"]:::planned
+  notify["SMS and email"]:::planned
+  official["Official legal sources"]:::planned
+  helplines["Emergency helplines"]:::impl
+
+  citizen --> web
+  advocate --> web
+  admin --> panel
+  web -.-> api
+  panel -.-> api
+  web -->|"tel: links"| helplines
+  api -.-> ai
+  api -.-> speech
+  api -.-> pay
+  api -.-> notify
+  api -.->|"links and content"| official
+
+  classDef impl fill:#E6F4EA,stroke:#1B7F4B,color:#0B3D24
+  classDef scaffold fill:#FFF4D6,stroke:#B58100,color:#4A3500
+  classDef planned fill:#F3F4F6,stroke:#6B7280,color:#1F2937,stroke-dasharray:4 3
+  classDef group fill:#FFFFFF,stroke:#CBD5E1,color:#334155
+  class platform group

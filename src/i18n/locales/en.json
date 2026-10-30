@@ -297,6 +297,7 @@
       "submit": "Sign in",
       "submitting": "Signing in...",
       "notConnected": "Sign-in is not connected yet, so you were not signed in. Nothing was sent.",
+      "invalid": "That didn’t match. Check your details and try again.",
       "or": "or",
       "google": "Continue with Google",
       "googleOptional": "(Optional)",

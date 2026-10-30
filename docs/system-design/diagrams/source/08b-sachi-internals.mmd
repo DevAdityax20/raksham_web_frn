@@ -1,0 +1,16 @@
+flowchart LR
+  inp["Input Handler<br/>text or audio"] --> vl["Language and<br/>Voice Adapter"]
+  vl --> tri["Safety Triage"]
+  tri --> rt["Topic Router"]
+  rt --> rv["Retriever"]
+  rv --> cp["Answer Composer"]
+  cp --> ck["Citation and<br/>Safety Checker"]
+  ck --> fm["Response Formatter<br/>text, links, audio"]
+  tri -.->|"danger found"| fm
+  rt --> ps["Private Session Store"]
+  rv --- kb["Legal Knowledge Base"]
+  cp --- ai["AI language model"]
+  vl --- sp["Speech services"]
+
+  classDef planned fill:#F3F4F6,stroke:#6B7280,color:#1F2937,stroke-dasharray:4 3
+  class inp,vl,tri,rt,rv,cp,ck,fm,ps,kb,ai,sp planned

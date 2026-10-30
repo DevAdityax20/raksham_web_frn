@@ -1,0 +1,30 @@
+flowchart TB
+  subgraph t1["1. Start"]
+    direction LR
+    paid["Payment confirmed"] --> start["Start timer for<br/>paid blocks"]
+  end
+
+  subgraph t2["2. Watch the clock"]
+    direction LR
+    tick["Check remaining time"] --> warn{"One minute left?"}
+    warn -->|"Yes"| offer["Offer extension"]
+    offer --> ext{"Extended<br/>and paid?"}
+    ext -->|"Yes"| add["Add a block"]
+    add --> tick
+    ext -->|"No"| over{"Time over or<br/>chat ended?"}
+    warn -->|"No"| over
+    over -->|"No"| tick
+  end
+
+  subgraph t3["3. Close"]
+    direction LR
+    close["Close session,<br/>lock chat"] --> rec["Record payment and<br/>advocate earning"]
+  end
+
+  t1 -->|"timer running"| t2
+  t2 -->|"time over or chat ended"| t3
+
+  classDef planned fill:#F3F4F6,stroke:#6B7280,color:#1F2937,stroke-dasharray:4 3
+  classDef group fill:#FFFFFF,stroke:#CBD5E1,color:#334155
+  class paid,start,tick,warn,offer,ext,add,over,close,rec planned
+  class t1,t2,t3 group

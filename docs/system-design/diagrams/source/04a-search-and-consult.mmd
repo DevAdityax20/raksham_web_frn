@@ -1,0 +1,32 @@
+flowchart TB
+  subgraph find["1. Find an advocate"]
+    direction LR
+    pref["Set preferences<br/>department, location,<br/>budget, experience"] --> search["Search with filters<br/>language, rating,<br/>available now"]
+    search --> list["List of approved<br/>advocates"]
+    list --> prof["View profile<br/>and fee"]
+  end
+
+  subgraph inst["2a. Instant chat"]
+    direction LR
+    pay1["Pay for time in<br/>5-minute blocks"] --> chat["Timed chat with<br/>the advocate"]
+    chat --> ext["Session ends or<br/>is extended"]
+  end
+
+  subgraph book["2b. Book a lawyer"]
+    direction LR
+    slot["Choose a slot and<br/>describe the matter"] --> pay2["Pay the<br/>booking fee"]
+    pay2 --> conf["Advocate<br/>confirms"]
+    conf --> meet["Consultation at<br/>the booked time"]
+  end
+
+  after["3. Rate and give feedback"]
+
+  find -->|"Instant chat"| inst
+  find -->|"Book a lawyer"| book
+  inst --> after
+  book --> after
+
+  classDef planned fill:#F3F4F6,stroke:#6B7280,color:#1F2937,stroke-dasharray:4 3
+  classDef group fill:#FFFFFF,stroke:#CBD5E1,color:#334155
+  class pref,search,list,prof,pay1,chat,ext,slot,pay2,conf,meet,after planned
+  class find,inst,book group

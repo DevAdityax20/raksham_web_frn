@@ -1,0 +1,13 @@
+stateDiagram-v2
+  [*] --> Draft
+  Draft --> Submitted: Advocate submits
+  Submitted --> UnderReview: Reviewer opens it
+  UnderReview --> MoreInfoNeeded: Clarification requested
+  MoreInfoNeeded --> UnderReview: Advocate responds
+  UnderReview --> Approved: Credentials verified
+  UnderReview --> Rejected: Not verified
+  Rejected --> Draft: Advocate corrects and reapplies
+  Approved --> Suspended: Complaint or breach
+  Suspended --> Approved: Issue resolved
+  Approved --> Withdrawn: Advocate leaves
+  Withdrawn --> [*]

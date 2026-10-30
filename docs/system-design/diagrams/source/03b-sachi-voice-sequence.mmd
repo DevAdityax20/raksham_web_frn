@@ -1,0 +1,22 @@
+sequenceDiagram
+  actor User
+  participant App as Citizen Web App
+  participant API as Sachi Assistant
+  participant STT as Speech services
+  participant KB as Legal Knowledge Base
+  participant LLM as AI language model
+
+  User->>App: Speaks a question
+  App->>API: Audio and chosen language
+  API->>STT: Convert speech to text
+  STT-->>API: Text
+  API->>API: Danger check and topic
+  API->>KB: Search reviewed sources
+  KB-->>API: Passages and links
+  API->>LLM: Question without identity plus passages
+  LLM-->>API: Draft answer with citations
+  API->>API: Check citations and safety
+  API->>STT: Convert answer to speech
+  STT-->>API: Audio
+  API-->>App: Text, links and audio
+  App-->>User: Reads and speaks the answer

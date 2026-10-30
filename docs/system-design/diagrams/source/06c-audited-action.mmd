@@ -1,0 +1,16 @@
+sequenceDiagram
+  actor Admin
+  participant Panel as Admin Panel
+  participant API as Raksham API
+  participant Log as Audit log
+
+  Admin->>Panel: Approve advocate
+  Panel->>API: Request with session
+  API->>API: Check role and permission
+  alt Permitted
+    API->>API: Change status
+    API->>Log: Record who, what, when
+    API-->>Panel: Success
+  else Not permitted
+    API-->>Panel: Refused
+  end

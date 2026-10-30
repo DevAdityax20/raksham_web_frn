@@ -1,0 +1,54 @@
+erDiagram
+  LEGAL_CATEGORY ||--o{ LEGAL_RESOURCE : groups
+  RESOURCE_TYPE ||--o{ LEGAL_RESOURCE : classifies
+  USER ||--o{ FEEDBACK_REPORT : sends
+  USER ||--o{ SUPPORT_TICKET : opens
+  USER ||--o{ NOTIFICATION : receives
+  ADMIN_ACCOUNT ||--o{ AUDIT_LOG : performs
+
+  LEGAL_CATEGORY {
+    uuid id PK
+    string code
+    string title
+  }
+  RESOURCE_TYPE {
+    uuid id PK
+    string code
+  }
+  LEGAL_RESOURCE {
+    uuid id PK
+    uuid category_id FK
+    uuid type_id FK
+    string title
+    string operator
+    string city "nullable"
+    string contact
+    date last_reviewed
+    boolean is_sample
+  }
+  FEEDBACK_REPORT {
+    uuid id PK
+    uuid user_id FK "nullable"
+    string type "helpful, not_sure, needs_fixing"
+    string message "max 500 characters"
+    uuid sachi_message_id "optional"
+  }
+  SUPPORT_TICKET {
+    uuid id PK
+    uuid user_id FK
+    string status
+  }
+  NOTIFICATION {
+    uuid id PK
+    uuid user_id FK
+    string channel
+    string safe_text "no sensitive content"
+  }
+  AUDIT_LOG {
+    uuid id PK
+    uuid admin_id FK
+    string action
+    string entity_type
+    uuid entity_id
+    datetime occurred_at
+  }

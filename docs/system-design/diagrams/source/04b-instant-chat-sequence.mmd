@@ -1,0 +1,23 @@
+sequenceDiagram
+  actor Citizen
+  participant App as Citizen Web App
+  participant API as Raksham API
+  participant Pay as Payment gateway
+  actor Advocate
+
+  Citizen->>App: Choose Instant chat
+  App->>API: Request session with advocate
+  API->>Advocate: Notify request
+  Advocate-->>API: Accept
+  API-->>App: Show price per 5 minutes
+  App->>Pay: Pay for chosen blocks
+  Pay-->>API: Payment confirmed
+  API-->>App: Session active, timer starts
+  loop While time remains
+    Citizen->>Advocate: Messages
+    Advocate->>Citizen: Replies
+  end
+  API-->>App: One minute left, offer extension
+  Citizen->>Pay: Pay another block (optional)
+  API-->>App: Session ended
+  API->>API: Record earning for advocate

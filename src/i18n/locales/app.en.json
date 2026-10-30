@@ -1,0 +1,132 @@
+{
+  "nav": {
+    "label": "App navigation",
+    "home": "Home",
+    "askSachi": "Ask Sachi",
+    "problemAreas": "Problem areas",
+    "resources": "Official resources",
+    "advocates": "Advocates",
+    "checklist": "My checklist",
+    "drafts": "My drafts",
+    "privacy": "Privacy and settings",
+    "help": "Help and feedback",
+    "preview": "Preview",
+    "viewProfile": "View profile",
+    "signOut": "Sign out",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "header": {
+    "welcome": "Welcome, {{name}}",
+    "sub": "What would you like to do today?",
+    "quickExit": "Quick exit"
+  },
+  "emergency": {
+    "prefix": "In immediate danger? Call",
+    "number": "112.",
+    "more": "More emergency help",
+    "short": "In danger?",
+    "shortNumber": "Call 112"
+  },
+  "assistant": {
+    "label": "AI-guided assistant",
+    "titlePrefix": "Tell us what’s happening. We’ll help you find your",
+    "titleHighlight": "next step.",
+    "placeholder": "Describe your situation in your own words",
+    "start": "Start",
+    "privacy": "Please don’t share more than needed. Raksham gives general legal information, not legal advice.",
+    "choose": "Or choose a problem area",
+    "seeAll": "See all areas"
+  },
+  "areas": {
+    "domestic": "Domestic abuse and family harassment",
+    "bribery": "Bribery and government services",
+    "cyber": "Cybercrime, deepfakes and blackmail",
+    "police": "Police encounters and citizen rights",
+    "general": "General legal help"
+  },
+  "cards": {
+    "guidance": {
+      "title": "Get guidance by problem area",
+      "description": "Answer a few simple questions and get a clear checklist.",
+      "cta": "Choose a problem area"
+    },
+    "official": {
+      "badge": "Official",
+      "title": "Find official help",
+      "description": "Verified government services, legal aid, and support organizations.",
+      "cta": "Open resource directory"
+    },
+    "advocate": {
+      "badge": "Preview",
+      "title": "Talk to a verified advocate",
+      "description": "Human help when your situation needs a qualified professional.",
+      "note": "Sample profiles, availability being confirmed.",
+      "cta": "View advocates"
+    }
+  },
+  "continue": {
+    "title": "Continue where you left off",
+    "emptyTitle": "Nothing saved yet.",
+    "emptyBody": "Your checklists and drafts will appear here. You decide what is saved.",
+    "cta": "Start with a problem area"
+  },
+  "control": {
+    "title": "You’re in control.",
+    "body": "View, export, or delete your saved information any time.",
+    "cta": "Privacy and settings"
+  },
+  "footer": {
+    "disclaimer": "Raksham provides general legal information, not legal advice. Not affiliated with any government body.",
+    "report": "Report an incorrect answer"
+  },
+  "chat": {
+    "back": "Home",
+    "change": "Change",
+    "changeArea": "Choose a problem area",
+    "progress": "Question {{current}} of about {{total}}",
+    "progressDone": "All questions answered",
+    "sachi": "Sachi",
+    "you": "You",
+    "placeholder": "Type your answer or describe what happened",
+    "privacy": "Share only what’s needed. General legal information, not legal advice.",
+    "send": "Send",
+    "skip": "Skip question",
+    "skipped": "Skipped",
+    "more": "More options",
+    "startOver": "Start over",
+    "greeting": "Hi {{name}}. I’ll ask a few short questions to help you find your next step. You can skip any question.",
+    "areaChanged": "Okay, I’ve switched to: {{area}}.",
+    "dangerYes": "If you are in danger right now, please call 112 straight away. You can keep answering here once you are safe.",
+    "finished": "Thank you. Sachi’s guidance service isn’t connected yet, so I can’t build your checklist right now. Your answers stayed on this screen and were not sent anywhere.",
+    "followUp": "Sachi’s guidance service isn’t connected yet, so I can’t reply to this. Nothing you wrote was sent anywhere.",
+    "official": "Browse official resources",
+    "advocates": "View advocates",
+    "questions": {
+      "danger": {
+        "text": "First, are you in immediate danger right now?",
+        "options": { "yes": "Yes, I need help now", "no": "No, I’m safe", "unsure": "Not sure" }
+      },
+      "when": {
+        "text": "When did this happen?",
+        "options": { "today": "Today", "week": "In the last week", "earlier": "Earlier than that" }
+      },
+      "what": {
+        "text": "In a few words, what happened? Share only what’s needed."
+      },
+      "evidence": {
+        "text": "Do you have any messages, screenshots or documents about it?",
+        "options": { "yes": "Yes", "no": "No", "unsure": "Not sure" }
+      }
+    }
+  },
+  "placeholder": {
+    "title": "{{section}} is coming soon",
+    "body": "This part of the app hasn’t been built yet. Nothing here is saved or sent.",
+    "back": "Back to home"
+  },
+  "areasPage": {
+    "title": "Problem areas",
+    "sub": "Choose one and Sachi will ask a few short questions."
+  }
+}

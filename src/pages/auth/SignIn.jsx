@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Info, LoaderCircle } from 'lucide-react'
 import AuthLayout from '../../components/auth/AuthLayout.jsx'
@@ -12,6 +12,7 @@ import { validateIdentifier } from '../../utils/authValidation.js'
 
 function SignIn() {
   const { t } = useTranslation()
+  const navigate = useNavigate()
   const [identifier, setIdentifier] = useState('')
   const [password, setPassword] = useState('')
   // Errors and status hold translation keys so they re-translate when the language changes.
@@ -35,10 +36,12 @@ function SignIn() {
     setLoading(true)
     const result = await signIn({ identifier: identifier.trim(), password })
     setLoading(false)
-    if (!result.ok) {
-      setPassword('')
-      setStatusKey('auth.signIn.notConnected')
+    if (result.ok) {
+      navigate('/app/home')
+      return
     }
+    setPassword('')
+    setStatusKey(result.reason === 'invalid' ? 'auth.signIn.invalid' : 'auth.signIn.notConnected')
   }
 
   const handleGoogle = async () => {

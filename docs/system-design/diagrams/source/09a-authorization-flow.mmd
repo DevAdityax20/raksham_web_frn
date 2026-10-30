@@ -1,0 +1,12 @@
+flowchart LR
+  req["Request"] --> authn{"Valid session?"}
+  authn -->|"No"| r401["Refuse: sign in"]
+  authn -->|"Yes"| authz{"Role has<br/>permission?"}
+  authz -->|"No"| r403["Refuse: forbidden"]
+  authz -->|"Yes"| own{"Own record or<br/>assigned case?"}
+  own -->|"No"| r403
+  own -->|"Yes"| act["Perform action"]
+  act --> log[("Audit log<br/>for admin actions")]
+
+  classDef planned fill:#F3F4F6,stroke:#6B7280,color:#1F2937,stroke-dasharray:4 3
+  class req,authn,r401,authz,r403,own,act,log planned

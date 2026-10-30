@@ -1,0 +1,10 @@
+flowchart LR
+  rep["User reports a wrong<br/>or unclear answer"] --> tick["Ticket in Support and Reports"]
+  tick --> rev["Content manager checks<br/>with a legal reviewer"]
+  rev --> fix{"Source needs<br/>a change?"}
+  fix -->|"Yes"| upd["Update the knowledge base<br/>and re-index"]
+  fix -->|"No"| note["Reply to the reporter"]
+  upd --> note
+
+  classDef planned fill:#F3F4F6,stroke:#6B7280,color:#1F2937,stroke-dasharray:4 3
+  class rep,tick,rev,fix,upd,note planned

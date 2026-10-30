@@ -2,6 +2,8 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import en from './locales/en.json'
 import hi from './locales/hi.json'
+import appEn from './locales/app.en.json'
+import appHi from './locales/app.hi.json'
 
 export const STORAGE_KEY = 'raksham.language'
 
@@ -24,7 +26,10 @@ function readStoredLanguage() {
 
 if (!i18n.isInitialized) {
   i18n.use(initReactI18next).init({
-    resources: { en: { translation: en }, hi: { translation: hi } },
+    resources: {
+      en: { translation: { ...en, app: appEn } },
+      hi: { translation: { ...hi, app: appHi } },
+    },
     lng: readStoredLanguage(),
     fallbackLng: 'en',
     supportedLngs: supported,

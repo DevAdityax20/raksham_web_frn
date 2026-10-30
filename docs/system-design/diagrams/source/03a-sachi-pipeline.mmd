@@ -1,0 +1,34 @@
+flowchart TB
+  subgraph s1["1. Understand and protect"]
+    direction LR
+    q(["User asks by text or voice"]) --> lang["Detect language<br/>voice to text"]
+    lang --> triage{"Immediate danger<br/>or crisis?"}
+    triage -->|"Yes"| urgent["Show helplines and<br/>safety steps with Quick exit"]
+  end
+
+  subgraph s2["2. Prepare"]
+    direction LR
+    topic["Identify the topic"] --> sens{"Sensitive topic?"}
+    sens -->|"Yes"| priv["Start private mode"]
+    sens -->|"No"| retr["Retrieve reviewed sources"]
+    priv --> retr
+  end
+
+  subgraph s3["3. Answer"]
+    direction LR
+    found{"Reliable sources<br/>found?"}
+    found -->|"Yes"| draft["Draft answer in the<br/>user's language"]
+    draft --> check["Check citations<br/>and safety rules"]
+    check --> answer["Structured answer<br/>text and voice"]
+    answer --> hand["Offer: talk to an advocate"]
+    found -->|"No"| refer["Say what is unknown, point to<br/>the right office or an advocate"]
+    refer --> hand
+  end
+
+  s1 -->|"continue"| s2
+  s2 --> s3
+
+  classDef planned fill:#F3F4F6,stroke:#6B7280,color:#1F2937,stroke-dasharray:4 3
+  classDef group fill:#FFFFFF,stroke:#CBD5E1,color:#334155
+  class q,lang,triage,urgent,topic,sens,priv,retr,found,refer,draft,check,answer,hand planned
+  class s1,s2,s3 group

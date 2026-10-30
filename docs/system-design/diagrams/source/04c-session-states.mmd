@@ -1,0 +1,14 @@
+stateDiagram-v2
+  [*] --> Requested
+  Requested --> Declined: Advocate unavailable
+  Requested --> AwaitingPayment: Advocate accepts
+  AwaitingPayment --> Cancelled: Payment not made in time
+  AwaitingPayment --> Active: Payment confirmed
+  Active --> Active: Extended by another block
+  Active --> Ended: Time used up or either side ends
+  Active --> Interrupted: Technical failure
+  Interrupted --> Refunded: Unused time returned
+  Ended --> [*]
+  Declined --> [*]
+  Cancelled --> [*]
+  Refunded --> [*]

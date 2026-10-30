@@ -1,0 +1,49 @@
+flowchart TB
+  subgraph clients["Client applications"]
+    direction LR
+    web["Citizen Web App<br/>citizen and advocate areas"]:::impl
+    panel["Admin Panel"]:::scaffold
+  end
+
+  subgraph backend["Raksham API (one modular backend, proposed)"]
+    auth["Authentication and RBAC"]:::planned
+    subgraph mods["Business modules"]
+      direction LR
+      sachi["Sachi Assistant"]:::planned
+      kb["Legal Knowledge Base"]:::planned
+      dir["Advocate Directory"]:::planned
+      cons["Consultation and Booking"]:::planned
+      chat["Real-time Chat"]:::planned
+      wallet["Wallet and Payments"]:::planned
+      adv["Advocate Verification"]:::planned
+      supp["Support and Reports"]:::planned
+      notif["Notification Service"]:::planned
+    end
+  end
+
+  subgraph ext["External services"]
+    direction LR
+    llm["AI language model"]:::planned
+    speech["Speech services"]:::planned
+    pay["Payment gateway"]:::planned
+    msg["SMS and email"]:::planned
+  end
+
+  subgraph data["Data and storage"]
+    direction LR
+    db[("Primary database")]:::planned
+    idx[("Knowledge index")]:::planned
+    files[("Restricted file storage")]:::planned
+    audit[("Audit log")]:::planned
+  end
+
+  clients -->|"HTTPS"| auth
+  auth --> mods
+  mods -->|"calls"| ext
+  mods -->|"reads and writes"| data
+
+  classDef impl fill:#E6F4EA,stroke:#1B7F4B,color:#0B3D24
+  classDef scaffold fill:#FFF4D6,stroke:#B58100,color:#4A3500
+  classDef planned fill:#F3F4F6,stroke:#6B7280,color:#1F2937,stroke-dasharray:4 3
+  classDef group fill:#FFFFFF,stroke:#CBD5E1,color:#334155
+  class clients,backend,mods,ext,data group

@@ -1,0 +1,9 @@
+flowchart LR
+  user["User question<br/>text or voice"] --> strip["Remove names, numbers<br/>and identifiers"]
+  strip --> retr["Retrieve reviewed sources"]
+  retr --> ai["AI language model"]
+  ai --> ans["Answer with citations"]
+  user -.->|"private mode"| nostore["Not linked to an account<br/>deleted when the session ends"]
+
+  classDef planned fill:#F3F4F6,stroke:#6B7280,color:#1F2937,stroke-dasharray:4 3
+  class user,strip,retr,ai,ans,nostore planned

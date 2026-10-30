@@ -1,0 +1,14 @@
+flowchart LR
+  main["main.jsx<br/>i18n and router setup"]:::impl --> app["App.jsx<br/>four routes"]:::impl
+  app --> home["HomePage<br/>sections and footer"]:::impl
+  app --> auth["SignIn and CreateAccount<br/>inside AuthLayout"]:::impl
+  app --> nf["NotFoundPage"]:::impl
+
+  home --> data["data files<br/>static content"]:::impl
+  home --> fsvc["feedbackService<br/>returns not-connected"]:::impl
+  auth --> asvc["authService<br/>returns not-connected"]:::impl
+  auth --> val["authValidation<br/>email, mobile, password rules"]:::impl
+  home --> loc["i18n locales<br/>English and Hindi"]:::impl
+  auth --> loc
+
+  classDef impl fill:#E6F4EA,stroke:#1B7F4B,color:#0B3D24

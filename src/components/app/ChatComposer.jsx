@@ -1,0 +1,65 @@
+import { useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { ArrowRight, Lock } from 'lucide-react'
+
+const MAX_HEIGHT = 140
+
+// Enter sends, Shift+Enter adds a new line, empty messages are ignored.
+function ChatComposer({ onSend }) {
+  const { t } = useTranslation()
+  const [value, setValue] = useState('')
+  const ref = useRef(null)
+
+  const resize = () => {
+    const el = ref.current
+    if (!el) return
+    el.style.height = 'auto'
+    el.style.height = `${Math.min(el.scrollHeight, MAX_HEIGHT)}px`
+  }
+
+  const submit = () => {
+    const text = value.trim()
+    if (!text) return
+    onSend(text)
+    setValue('')
+    requestAnimationFrame(() => {
+      if (ref.current) ref.current.style.height = 'auto'
+    })
+  }
+
+  const onKeyDown = (event) => {
+    if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) {
+      event.preventDefault()
+      submit()
+    }
+  }
+
+  return (
+    <div className="chat-composer">
+      <div className="chat-composer__box">
+        <label className="sr-only" htmlFor="chat-input">{t('app.chat.placeholder')}</label>
+        <textarea
+          id="chat-input"
+          ref={ref}
+          rows={1}
+          value={value}
+          placeholder={t('app.chat.placeholder')}
+          onChange={(event) => {
+            setValue(event.target.value)
+            resize()
+          }}
+          onKeyDown={onKeyDown}
+        />
+        <button type="button" className="chat-send" aria-label={t('app.chat.send')} onClick={submit}>
+          <ArrowRight aria-hidden="true" strokeWidth={2.25} />
+        </button>
+      </div>
+      <p className="chat-composer__privacy">
+        <Lock aria-hidden="true" strokeWidth={1.6} />
+        {t('app.chat.privacy')}
+      </p>
+    </div>
+  )
+}
+
+export default ChatComposer
