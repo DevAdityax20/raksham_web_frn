@@ -69,6 +69,9 @@ function SignIn() {
             onChange={(event) => setIdentifier(event.target.value)}
             placeholder={t('auth.common.identifierPlaceholder')}
             autoComplete="username"
+            autoCapitalize="none"
+            autoCorrect="off"
+            spellCheck={false}
             aria-invalid={errors.identifier ? true : undefined}
             aria-describedby={errors.identifier ? 'signin-identifier-error' : undefined}
           />

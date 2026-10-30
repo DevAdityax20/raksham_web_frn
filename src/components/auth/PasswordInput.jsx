@@ -17,6 +17,9 @@ function PasswordInput({ id, value, onChange, placeholder, autoComplete, invalid
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
         autoComplete={autoComplete}
+        autoCapitalize="none"
+        autoCorrect="off"
+        spellCheck={false}
         aria-invalid={invalid || undefined}
         aria-describedby={describedBy}
       />
