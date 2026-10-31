@@ -78,13 +78,14 @@ function SachiWidget() {
                 answers={state.answers}
                 onAnswer={chat.answer}
                 onSkip={chat.skip}
+                onRetry={chat.retry}
               />
             ))}
             <div ref={endRef} />
           </div>
         </div>
 
-        <ChatComposer onSend={chat.sendText} />
+        <ChatComposer onSend={chat.sendText} disabled={chat.thinking} />
       </section>
 
       <button

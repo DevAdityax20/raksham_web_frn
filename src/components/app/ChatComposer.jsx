@@ -4,8 +4,11 @@ import { ArrowRight, Lock } from 'lucide-react'
 
 const MAX_HEIGHT = 140
 
+const MAX_LENGTH = 1500
+
 // Enter sends, Shift+Enter adds a new line, empty messages are ignored.
-function ChatComposer({ onSend }) {
+// `disabled` blocks sending (for example while Sachi is writing a reply) but keeps the text editable.
+function ChatComposer({ onSend, disabled = false }) {
   const { t } = useTranslation()
   const [value, setValue] = useState('')
   const ref = useRef(null)
@@ -19,7 +22,7 @@ function ChatComposer({ onSend }) {
 
   const submit = () => {
     const text = value.trim()
-    if (!text) return
+    if (!text || disabled) return
     onSend(text)
     setValue('')
     requestAnimationFrame(() => {
@@ -43,6 +46,7 @@ function ChatComposer({ onSend }) {
           ref={ref}
           rows={1}
           value={value}
+          maxLength={MAX_LENGTH}
           placeholder={t('app.chat.placeholder')}
           onChange={(event) => {
             setValue(event.target.value)
@@ -50,7 +54,7 @@ function ChatComposer({ onSend }) {
           }}
           onKeyDown={onKeyDown}
         />
-        <button type="button" className="chat-send" aria-label={t('app.chat.send')} onClick={submit}>
+        <button type="button" className="chat-send" aria-label={t('app.chat.send')} aria-busy={disabled} disabled={disabled} onClick={submit}>
           <ArrowRight aria-hidden="true" strokeWidth={2.25} />
         </button>
       </div>

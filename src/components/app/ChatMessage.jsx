@@ -5,6 +5,21 @@ import SachiAvatar from './SachiAvatar.jsx'
 import { mockUser } from '../../data/app.js'
 import { sachiQuestions } from '../../data/sachiQuestions.js'
 
+// Maps a failure reason from the service to the key of its message.
+const ERROR_KEYS = {
+  'not-connected': 'notConnected',
+  AI_NOT_CONFIGURED: 'notConfigured',
+  AI_RATE_LIMITED: 'rateLimited',
+  RATE_LIMITED: 'rateLimited',
+  AI_TIMEOUT: 'timeout',
+  AI_UNAVAILABLE: 'unavailable',
+  AI_BAD_RESPONSE: 'unavailable',
+  network: 'network',
+}
+
+// Reasons where trying again cannot help until something is configured.
+const NO_RETRY = new Set(['not-connected', 'AI_NOT_CONFIGURED'])
+
 function UserMessage({ message }) {
   const { t } = useTranslation()
   let text = message.text
@@ -17,8 +32,28 @@ function UserMessage({ message }) {
   )
 }
 
+const NextSteps = () => {
+  const { t } = useTranslation()
+  return (
+    <div className="chat-options">
+      <Link className="chat-option" to="/app/resources">{t('app.chat.official')}</Link>
+      <Link className="chat-option" to="/app/advocates">{t('app.chat.advocates')}</Link>
+    </div>
+  )
+}
+
+const CallButton = () => {
+  const { t } = useTranslation()
+  return (
+    <a className="chat-action chat-action--call" href="tel:112">
+      <PhoneCall aria-hidden="true" strokeWidth={1.8} />
+      {t('app.emergency.shortNumber')}
+    </a>
+  )
+}
+
 // One message from Sachi. For a question it also renders the answer buttons.
-function SachiMessage({ message, active, answers, onAnswer, onSkip }) {
+function SachiMessage({ message, active, answers, onAnswer, onSkip, onRetry }) {
   const { t } = useTranslation()
   const question = message.kind === 'question' ? sachiQuestions.find((q) => q.id === message.qid) : null
   const answered = question ? answers[question.id] : undefined
@@ -30,29 +65,52 @@ function SachiMessage({ message, active, answers, onAnswer, onSkip }) {
   if (message.kind === 'question') text = t(`app.chat.questions.${message.qid}.text`)
   if (message.kind === 'dangerYes') text = t('app.chat.dangerYes')
   if (message.kind === 'areaChanged') text = t('app.chat.areaChanged', { area: t(`app.areas.${message.area}`) })
-  if (message.kind === 'finished') text = t('app.chat.finished')
-  if (message.kind === 'followUp') text = t('app.chat.followUp')
+  if (message.kind === 'thinking') text = t('app.chat.thinking')
+  if (message.kind === 'ai') text = message.text
+  if (message.kind === 'aiError') text = t(`app.chat.errors.${ERROR_KEYS[message.reason] ?? 'generic'}`)
+
+  const isReply = message.kind === 'ai'
 
   return (
     <div className="chat-row">
       <SachiAvatar />
       <div className="chat-col">
         <span className="chat-sender">{t('app.chat.sachi')}</span>
-        <p className="chat-bubble">{text}</p>
+        <p className={`chat-bubble${isReply ? ' chat-bubble--reply' : ''}${message.kind === 'thinking' ? ' chat-bubble--thinking' : ''}`}>
+          {text}
+        </p>
 
-        {message.kind === 'dangerYes' && (
-          <a className="chat-action chat-action--call" href="tel:112">
-            <PhoneCall aria-hidden="true" strokeWidth={1.8} />
-            {t('app.emergency.shortNumber')}
-          </a>
-        )}
+        {message.kind === 'thinking' && <span className="sr-only" role="status">{text}</span>}
 
-        {message.kind === 'finished' && (
-          <div className="chat-options">
-            <Link className="chat-option" to="/app/resources">{t('app.chat.official')}</Link>
-            <Link className="chat-option" to="/app/advocates">{t('app.chat.advocates')}</Link>
+        {(message.kind === 'dangerYes' || (isReply && message.emergency)) && <CallButton />}
+
+        {isReply && message.emergency && message.helplines?.length > 0 && (
+          <div className="chat-helplines">
+            <strong>{t('app.chat.helplines')}</strong>
+            <ul>
+              {message.helplines.map((line) => (
+                <li key={line.number}>
+                  <a href={`tel:${line.number}`}>
+                    <b>{line.number}</b> {line.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
+
+        {isReply && !message.emergency && !message.grounded && <p className="chat-note">{t('app.chat.notChecked')}</p>}
+
+        {message.kind === 'aiError' && (
+          <>
+            {!NO_RETRY.has(message.reason) && (
+              <button type="button" className="chat-option" onClick={onRetry}>{t('app.chat.retry')}</button>
+            )}
+            <CallButton />
+          </>
+        )}
+
+        {(message.kind === 'aiError' || (isReply && !message.emergency)) && message.offer && <NextSteps />}
 
         {question?.type === 'choice' && (
           <div className="chat-options" role="group" aria-label={text}>
